@@ -1,6 +1,10 @@
-.chat {
+/* .chat {
   position: absolute;
   right: 0;
   top: 2rem;
   height: 95vh;
+} */
+
+.chat {
+  grid-area: 1 / 3 / 3 / 4;
 }
