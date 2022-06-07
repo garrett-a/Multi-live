@@ -10,13 +10,3 @@
   max-width: 1000px;
   margin: 0 auto;
 }
-
-.chat {
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100vh;
-}
-
-.wrapper {
-}
