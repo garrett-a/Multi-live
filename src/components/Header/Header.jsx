@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 
 import classes from "./Header.module.css";
 
-const Header = () => {
+const Header = (props) => {
+  const [open, setOpen] = useState(false);
+
   return (
     <header className={classes.header}>
       <h1>Twitch Player</h1>
       <input type="search"></input>
       <div>User</div>
-      <button></button>
+      <i onClick={() => setOpen(!open)} class="fa-solid fa-bars">
+        {open && props.children}
+      </i>
     </header>
   );
 };

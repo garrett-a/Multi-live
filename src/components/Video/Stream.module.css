@@ -17,6 +17,6 @@
   left: 0;
   object-fit: cover;
   object-position: center; */
-  min-height: calc(50vh - 2rem);
+  min-height: calc(50vh - 3.1rem);
   aspect-ratio: 16 / 9;
 }
