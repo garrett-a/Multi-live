@@ -8,7 +8,7 @@ const Chat = () => {
       <iframe
         title="1"
         id="twitch-chat-embed"
-        src="https://www.twitch.tv/embed/ziqoftw/chat?parent=localhost"
+        src="https://www.twitch.tv/embed/pikabooirl/chat?parent=localhost"
         height="100%"
         width="350"
       ></iframe>

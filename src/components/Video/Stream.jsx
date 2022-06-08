@@ -10,17 +10,18 @@ const Stream = () => {
       <div className={classes.wrapper}>
         <ReactPlayer
           className={classes.player}
-          url="https://www.twitch.tv/ziqoftw"
+          url="https://www.twitch.tv/pikabooirl"
           width="100%"
-          height="100%"
+          // height="100%"
         />
       </div>
       <div className={classes.wrapper2}>
         <ReactPlayer
           className={classes.player}
-          url="https://www.twitch.tv/ziqoftw"
+          url="https://www.twitch.tv/pikabooirl"
           width="100%"
-          height="100%"
+          theme="dark"
+          // height="100%"
         />
       </div>
     </Fragment>
