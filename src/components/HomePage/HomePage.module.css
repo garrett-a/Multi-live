@@ -1,0 +1,22 @@
+.homepage {
+  color: #fff;
+  text-align: center;
+  background-color: grey;
+  width: 70rem;
+  height: 35rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5rem auto;
+  border-radius: 8px;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+button {
+  width: 6rem;
+  height: 3rem;
+}

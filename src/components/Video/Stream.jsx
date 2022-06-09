@@ -10,7 +10,7 @@ const Stream = () => {
       <div className={classes.wrapper}>
         <ReactPlayer
           className={classes.player}
-          url="https://www.twitch.tv/pikabooirl"
+          url="https://www.twitch.tv/xaryu"
           width="100%"
           // height="100%"
         />
