@@ -13,6 +13,8 @@ function App(props) {
   const [showStream, setShowStream] = useState(false);
   const [streams, setStreams] = useState("");
 
+  console.log(streams.label);
+
   const addStream = () => {
     setShowStream(true);
   };
@@ -27,7 +29,7 @@ function App(props) {
       {showStream && (
         <Container>
           <Chat />
-          <Stream url={streams} />
+          <Stream url={streams.label} />
         </Container>
       )}
     </Fragment>

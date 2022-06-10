@@ -7,8 +7,6 @@ const Header = (props) => {
   const [open, setOpen] = useState(false);
   // const [streams, setStreams] = useState("");
 
-  // console.log(streams);
-
   return (
     <header className={classes.header}>
       <h1>Twitch Player</h1>
