@@ -4,7 +4,7 @@ import ReactPlayer from "react-player";
 
 import classes from "./Stream.module.css";
 
-const Stream = () => {
+const Stream = (props) => {
   return (
     <Fragment>
       <div className={classes.wrapper}>
@@ -18,7 +18,7 @@ const Stream = () => {
       <div className={classes.wrapper2}>
         <ReactPlayer
           className={classes.player}
-          url="https://www.twitch.tv/pikabooirl"
+          url={`https://www.twitch.tv/${props.url}`}
           width="100%"
           theme="dark"
           // height="100%"

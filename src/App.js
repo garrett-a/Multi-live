@@ -9,10 +9,9 @@ import SettingModal from "./components/Header/SettingModal";
 import SideBar from "./components/SideBar/SideBar";
 import HomePage from "./components/HomePage/HomePage";
 
-console.log(process.env.REACT_APP_TOKEN);
-
-function App() {
+function App(props) {
   const [showStream, setShowStream] = useState(false);
+  const [streams, setStreams] = useState("");
 
   const addStream = () => {
     setShowStream(true);
@@ -20,7 +19,7 @@ function App() {
 
   return (
     <Fragment>
-      <Header>
+      <Header setStreams={setStreams}>
         <SettingModal />
       </Header>
       <SideBar />
@@ -28,7 +27,7 @@ function App() {
       {showStream && (
         <Container>
           <Chat />
-          <Stream />
+          <Stream url={streams} />
         </Container>
       )}
     </Fragment>
