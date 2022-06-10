@@ -9,6 +9,8 @@ import SettingModal from "./components/Header/SettingModal";
 import SideBar from "./components/SideBar/SideBar";
 import HomePage from "./components/HomePage/HomePage";
 
+console.log(process.env.REACT_APP_TOKEN);
+
 function App() {
   const [showStream, setShowStream] = useState(false);
 
