@@ -9,13 +9,15 @@ const AsyncSearchBar = ({ setStreams }) => {
 
   const [query, setQuery] = useState("");
 
+  console.log(`${process.env.REACT_APP_TOKEN}`);
+
   const fetchStreams = async () => {
     const response = await fetch(
       `https://api.twitch.tv/helix/search/channels?query=${query}`,
       {
         method: "GET",
         headers: {
-          Authorization: `Bearer qe853taskz394q7tly71ncbfzss47x `,
+          Authorization: `Bearer ${process.env.REACT_APP_TOKEN} `,
           "Client-Id": `owb00645opxcsak6j0dwv4w5ue7pcb`,
           "Content-Type": "application/json",
         },
@@ -25,7 +27,7 @@ const AsyncSearchBar = ({ setStreams }) => {
     const result = responseData.data.map((item) => {
       return { label: item.display_name, value: item.id };
     });
- 
+
     return result;
   };
 
@@ -41,6 +43,7 @@ const AsyncSearchBar = ({ setStreams }) => {
         loadOptions={fetchStreams}
         onInputChange={(value) => setQuery(value)}
         onChange={(value) => setStreams(value)}
+        escapeClearsValue={true}
       />
     </Fragment>
   );
