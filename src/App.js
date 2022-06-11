@@ -28,7 +28,7 @@ function App(props) {
       {!showStream && <HomePage onClick={addStream} />}
       {showStream && (
         <Container>
-          <Chat />
+          <Chat url={streams.label} />
           <Stream url={streams.label} />
         </Container>
       )}

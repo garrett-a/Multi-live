@@ -21,6 +21,8 @@ const Stream = (props) => {
           url={`https://www.twitch.tv/${props.url}`}
           width="100%"
           theme="dark"
+          playing="true"
+
           // height="100%"
         />
       </div>

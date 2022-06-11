@@ -25,10 +25,7 @@ const AsyncSearchBar = ({ setStreams }) => {
     const result = responseData.data.map((item) => {
       return { label: item.display_name, value: item.id };
     });
-
-    console.log(result);
-    console.log(result.label);
-    console.log(result[0].value);
+ 
     return result;
   };
 
