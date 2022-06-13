@@ -4,7 +4,7 @@ import makeAnimated from "react-select/animated";
 
 import classes from "./AsyncSearchBar.module.css";
 
-const AsyncSearchBar = ({ setStreams }) => {
+const AsyncSearchBar = ({ setStreams, addStream }) => {
   const animatedComponents = makeAnimated();
 
   const [query, setQuery] = useState("");
@@ -44,6 +44,7 @@ const AsyncSearchBar = ({ setStreams }) => {
         onInputChange={(value) => setQuery(value)}
         onChange={(value) => setStreams(value)}
         escapeClearsValue={true}
+        onMenuClose={addStream}
       />
     </Fragment>
   );

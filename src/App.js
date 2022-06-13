@@ -21,7 +21,7 @@ function App(props) {
 
   return (
     <Fragment>
-      <Header setStreams={setStreams}>
+      <Header setStreams={setStreams} addStream={addStream}>
         <SettingModal />
       </Header>
       <SideBar />
