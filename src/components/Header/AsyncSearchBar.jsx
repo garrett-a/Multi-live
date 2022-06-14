@@ -4,12 +4,20 @@ import makeAnimated from "react-select/animated";
 
 import classes from "./AsyncSearchBar.module.css";
 
-const AsyncSearchBar = ({ setStreams, addStream }) => {
+const AsyncSearchBar = ({ setSearchedStreams, addStream }) => {
   const animatedComponents = makeAnimated();
 
   const [query, setQuery] = useState("");
 
-  console.log(`${process.env.REACT_APP_TOKEN}`);
+  const renderStreamHandler = () => {
+    if (query !== "") {
+      addStream();
+    }
+  };
+
+  const resetInput = () => {
+    setQuery("");
+  };
 
   const fetchStreams = async () => {
     const response = await fetch(
@@ -42,9 +50,11 @@ const AsyncSearchBar = ({ setStreams, addStream }) => {
         getOptionValue={(e) => e.value}
         loadOptions={fetchStreams}
         onInputChange={(value) => setQuery(value)}
-        onChange={(value) => setStreams(value)}
+        onChange={(value) => setSearchedStreams(value)}
         escapeClearsValue={true}
-        onMenuClose={addStream}
+        onMenuClose={renderStreamHandler}
+        onBlur={resetInput}
+        value={query}
       />
     </Fragment>
   );

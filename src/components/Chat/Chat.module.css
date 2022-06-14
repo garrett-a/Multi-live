@@ -9,4 +9,5 @@
   grid-area: 1 / 2 / 3 / 3;
   justify-self: end;
   max-height: 100%;
+  max-width: 350px;
 }
