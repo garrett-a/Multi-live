@@ -9,15 +9,6 @@ import SettingModal from "./components/Header/SettingModal";
 import SideBar from "./components/SideBar/SideBar";
 import HomePage from "./components/HomePage/HomePage";
 
-const streamList = [
-  {
-    url: "http://twitter.com",
-  },
-  {
-    url: "http://twitch.com",
-  },
-];
-
 function App() {
   const [showStream, setShowStream] = useState(false);
   const [searchedStreams, setSearchedStreams] = useState("");
@@ -34,7 +25,7 @@ function App() {
 
   const clickAddStreamButton = () => {
     setAddStreamButton(addStreamButton + 1);
-    searchedStreams("");
+    setSearchedStreams("");
   };
 
   return (
@@ -51,7 +42,11 @@ function App() {
       {showStream && (
         <Container>
           <Chat url={searchedStreams.label} />
-          <Stream url={searchedStreams.label} addedStream={addStreamButton} />
+          <Stream
+            url={searchedStreams.label}
+            addedStream={addStreamButton}
+            key={searchedStreams.value}
+          />
         </Container>
       )}
     </Fragment>
@@ -63,3 +58,12 @@ export default App;
 // {streamList.map((stream) => (
 //   <Stream url={stream.url} />
 // ))}
+
+// const streamList = [
+//   {
+//     url: "http://twitter.com",
+//   },
+//   {
+//     url: "http://twitch.com",
+//   },
+// ];

@@ -36,6 +36,8 @@ const AsyncSearchBar = ({ setSearchedStreams, addStream }) => {
       return { label: item.display_name, value: item.id };
     });
 
+    console.log(responseData);
+
     return result;
   };
 
