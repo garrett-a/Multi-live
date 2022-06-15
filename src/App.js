@@ -29,6 +29,7 @@ function App() {
 
   const addStream = () => {
     setShowStream(true);
+    setAddStreamButton(addStreamButton + 1);
   };
 
   const clickAddStreamButton = () => {
