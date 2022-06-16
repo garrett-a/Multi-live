@@ -9,11 +9,11 @@ const AsyncSearchBar = ({ setSearchedStreams, addStream }) => {
 
   const [query, setQuery] = useState("");
 
-  const renderStreamHandler = () => {
-    if (query !== "") {
-      // addStream();
-    }
-  };
+  // const renderStreamHandler = () => {
+  //   if (query !== "") {
+  //     // addStream();
+  //   }
+  // };
 
   const resetInput = () => {
     setQuery("");
@@ -33,13 +33,64 @@ const AsyncSearchBar = ({ setSearchedStreams, addStream }) => {
     );
     const responseData = await response.json();
     const result = responseData.data.map((item) => {
-      return { label: item.display_name, value: item.id };
+      return {
+        label: item.display_name,
+        value: item.id,
+        img: (
+          <img
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "30px",
+              borderRadius: "50%",
+            }}
+            alt={item.label}
+            src={item.thumbnail_url}
+          />
+        ),
+        live: item.is_live,
+      };
     });
 
     console.log(responseData);
+    console.log(result);
 
     return result;
   };
+
+  const optionLabel = (e) => (
+    <div
+      style={{
+        display: "flex",
+        alignContent: "center",
+      }}
+    >
+      <span>{e.img}</span>
+      <span
+        style={{ marginLeft: "25px", display: "flex", alignItems: "center" }}
+      >
+        {e.label}
+      </span>
+      {e.live && (
+        <span
+          style={{
+            display: "flex",
+            alignItems: "center",
+            marginLeft: "auto",
+            backgroundColor: "red",
+            padding: "6px",
+            borderRadius: "10px",
+            fontSize: "11px",
+            color: "#fff",
+            fontWeight: "bold",
+          }}
+        >
+          LIVE
+        </span>
+      )}
+    </div>
+  );
 
   return (
     <Fragment>
@@ -48,13 +99,12 @@ const AsyncSearchBar = ({ setSearchedStreams, addStream }) => {
         components={animatedComponents}
         placeholder="Search streams"
         className={classes.input}
-        getOptionLabel={(e) => e.label}
+        getOptionLabel={optionLabel}
         getOptionValue={(e) => e.value}
         loadOptions={fetchStreams}
         onInputChange={(value) => setQuery(value)}
         onChange={(value) => addStream(value.label)}
         escapeClearsValue={true}
-        onMenuClose={renderStreamHandler}
         onBlur={resetInput}
         value={query}
       />
@@ -63,3 +113,5 @@ const AsyncSearchBar = ({ setSearchedStreams, addStream }) => {
 };
 
 export default AsyncSearchBar;
+
+// getOptionLabel={(e) => e.label}

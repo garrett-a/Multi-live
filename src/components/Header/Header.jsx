@@ -13,7 +13,6 @@ const Header = (props) => {
         setSearchedStreams={props.setStreams}
         addStream={props.addStream}
       />
-      <i onClick={props.clickAddStreamButton} class="fa-solid fa-plus"></i>
       <i onClick={() => setOpen(!open)} class="fa-solid fa-bars">
         {open && props.children}
       </i>

@@ -11,9 +11,7 @@ import HomePage from "./components/HomePage/HomePage";
 
 function App() {
   const [showStream, setShowStream] = useState(false);
-  // const [searchedStreams, setSearchedStreams] = useState("");
   const [searchedStreams, setSearchedStreams] = useState([]);
-  const [addStreamButton, setAddStreamButton] = useState(0);
 
   console.log(searchedStreams);
 
@@ -21,20 +19,10 @@ function App() {
     setShowStream(true);
     setSearchedStreams([...searchedStreams, value]);
   };
-  // setAddStreamButton(addStreamButton + 1);
-
-  const clickAddStreamButton = () => {
-    setAddStreamButton(addStreamButton + 1);
-    setSearchedStreams("");
-  };
 
   return (
     <Fragment>
-      <Header
-        setStreams={setSearchedStreams}
-        addStream={addStream}
-        clickAddStreamButton={clickAddStreamButton}
-      >
+      <Header setStreams={setSearchedStreams} addStream={addStream}>
         <SettingModal />
       </Header>
       <SideBar />
@@ -42,11 +30,7 @@ function App() {
       {showStream && (
         <Container>
           <Chat url={searchedStreams.label} />
-          <Stream
-            url={searchedStreams}
-            searchedStreams={searchedStreams}
-            key={searchedStreams.value}
-          />
+          <Stream searchedStreams={searchedStreams} />
         </Container>
       )}
     </Fragment>

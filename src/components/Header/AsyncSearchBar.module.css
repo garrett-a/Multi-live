@@ -2,26 +2,5 @@
   color: black;
   background-color: blue;
   width: 300px;
-  font-size: 1.8rem;
-}
-menu {
-  color: red;
-}
-
-input {
-  background-color: red;
-}
-
-select {
-  color: red;
-  background-color: red;
-}
-
-menu {
-  background-color: red;
-  width: 300px;
-}
-
-.css-26l3qy-menu {
-  color: red;
+  font-size: 1.6rem;
 }
