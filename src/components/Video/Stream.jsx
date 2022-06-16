@@ -5,23 +5,48 @@ import ReactPlayer from "react-player";
 import classes from "./Stream.module.css";
 
 const Stream = (props) => {
-  const AddedStream = () => (
-    <div>
-      <ReactPlayer
-        key={props.key}
-        className={classes.player}
-        url={`https://www.twitch.tv/${props.url}`}
-        width="100%"
-        theme="dark"
-        playing="true"
-      />
-    </div>
-  );
+  console.log(props.searchedStreams);
 
-  return <Fragment>{Array(props.addedStream).fill(<AddedStream />)}</Fragment>;
+  return (
+    <Fragment>
+      {props.searchedStreams.map((label) => (
+        <div>
+          <ReactPlayer
+            key={label}
+            className={classes.player}
+            url={`https://www.twitch.tv/${label}`}
+            width="100%"
+            theme="dark"
+            playing={true}
+          />
+        </div>
+      ))}
+    </Fragment>
+  );
 };
 
 export default Stream;
+
+// const AddedStream = () => (
+//   <div>
+//     <ReactPlayer
+//       key={key}
+//       className={classes.player}
+//       url={`https://www.twitch.tv/${url}`}
+//       width="100%"
+//       theme="dark"
+//       playing="true"
+//     />
+//   </div>
+// );
+
+// map(({ name, email }) => {
+//   return (
+//     <p key={email}>
+//       {name} - {email}
+//     </p>
+//   );
+// });
 
 //POTENTIAL NEW RENDER
 // const [streams, setStreams] = useState([])

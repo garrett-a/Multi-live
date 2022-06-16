@@ -11,7 +11,7 @@ const AsyncSearchBar = ({ setSearchedStreams, addStream }) => {
 
   const renderStreamHandler = () => {
     if (query !== "") {
-      addStream();
+      // addStream();
     }
   };
 
@@ -52,7 +52,7 @@ const AsyncSearchBar = ({ setSearchedStreams, addStream }) => {
         getOptionValue={(e) => e.value}
         loadOptions={fetchStreams}
         onInputChange={(value) => setQuery(value)}
-        onChange={(value) => setSearchedStreams(value)}
+        onChange={(value) => addStream(value.label)}
         escapeClearsValue={true}
         onMenuClose={renderStreamHandler}
         onBlur={resetInput}

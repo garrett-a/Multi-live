@@ -11,17 +11,17 @@ import HomePage from "./components/HomePage/HomePage";
 
 function App() {
   const [showStream, setShowStream] = useState(false);
-  const [searchedStreams, setSearchedStreams] = useState("");
+  // const [searchedStreams, setSearchedStreams] = useState("");
+  const [searchedStreams, setSearchedStreams] = useState([]);
   const [addStreamButton, setAddStreamButton] = useState(0);
-
-  console.log(addStreamButton);
 
   console.log(searchedStreams);
 
-  const addStream = () => {
+  const addStream = (value) => {
     setShowStream(true);
-    setAddStreamButton(addStreamButton + 1);
+    setSearchedStreams([...searchedStreams, value]);
   };
+  // setAddStreamButton(addStreamButton + 1);
 
   const clickAddStreamButton = () => {
     setAddStreamButton(addStreamButton + 1);
@@ -43,8 +43,8 @@ function App() {
         <Container>
           <Chat url={searchedStreams.label} />
           <Stream
-            url={searchedStreams.label}
-            addedStream={addStreamButton}
+            url={searchedStreams}
+            searchedStreams={searchedStreams}
             key={searchedStreams.value}
           />
         </Container>
