@@ -29,7 +29,7 @@ function App() {
       {!showStream && <HomePage onClick={addStream} />}
       {showStream && (
         <Container>
-          <Chat url={searchedStreams.label} />
+          <Chat url={searchedStreams} />
           <Stream searchedStreams={searchedStreams} />
         </Container>
       )}

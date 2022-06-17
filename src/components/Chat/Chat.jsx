@@ -8,7 +8,7 @@ const Chat = (props) => {
       <iframe
         title="1"
         id="twitch-chat-embed"
-        src={`https://www.twitch.tv/embed/${props.url}/chat?parent=localhost`}
+        src={`https://www.twitch.tv/embed/${props.url}/chat?darkpopout&parent=localhost`}
         height="99%"
         width="350px"
       ></iframe>

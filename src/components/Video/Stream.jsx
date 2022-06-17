@@ -8,7 +8,7 @@ const Stream = (props) => {
   return (
     <Fragment>
       {props.searchedStreams.map((label) => (
-        <div className={classes.wrapperOneStream} key={label}>
+        <div key={label}>
           <ReactPlayer
             className={classes.player}
             url={`https://www.twitch.tv/${label}`}
