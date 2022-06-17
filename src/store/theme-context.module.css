@@ -1,17 +1,3 @@
-.wrapper {
-  grid-area: 1 / 1 / 2 / 2;
-  width: 100vmin;
-}
-.wrapper2 {
-  grid-area: 2 / 1 / 3 / 2;
-  width: 100vmin;
-}
-
-.player {
-  min-height: calc(50vh - 3rem);
-  aspect-ratio: 16 / 9;
-}
-
 /* 1 STREAM */
 
 .wrapperOneStream {
@@ -45,26 +31,4 @@
   min-height: calc(50vh - 2.5rem);
   aspect-ratio: 16 / 9;
   align-self: start;
-}
-
-/* .wrapperTwoStreams1 {
-  grid-area: 1 / 1 / 2 / 3;
-}
-
-.wrapperTwoStreams2 {
-  grid-area: 2 / 1 / 3 / 3;
-} */
-
-/* 3 STREAMS */
-
-.wrapperThreeStreams1 {
-  grid-area: 1 / 1 / 2 / 3;
-}
-
-.wrapperThreeStreams2 {
-  grid-area: 2 / 1 / 3 / 2;
-}
-
-.wrapperThreeStreams3 {
-  grid-area: 2 / 2 / 3 / 3;
 }

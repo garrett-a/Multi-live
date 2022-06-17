@@ -1,10 +1,12 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useContext } from "react";
 import AsyncSelect from "react-select/async";
 import makeAnimated from "react-select/animated";
+import ThemeContext from "../../store/theme-context";
 
 import classes from "./AsyncSearchBar.module.css";
 
-const AsyncSearchBar = ({ setSearchedStreams, addStream }) => {
+const AsyncSearchBar = () => {
+  const ctx = useContext(ThemeContext);
   const animatedComponents = makeAnimated();
 
   const [query, setQuery] = useState("");
@@ -103,7 +105,7 @@ const AsyncSearchBar = ({ setSearchedStreams, addStream }) => {
         getOptionValue={(e) => e.value}
         loadOptions={fetchStreams}
         onInputChange={(value) => setQuery(value)}
-        onChange={(value) => addStream(value.label)}
+        onChange={(value) => ctx.addStream(value.label)}
         escapeClearsValue={true}
         onBlur={resetInput}
         value={query}

@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useContext } from "react";
 
 import "./App.css";
 import Header from "./components/Header/Header";
@@ -8,29 +8,23 @@ import Container from "./UI/Container";
 import SettingModal from "./components/Header/SettingModal";
 import SideBar from "./components/SideBar/SideBar";
 import HomePage from "./components/HomePage/HomePage";
+import ThemeContext from "./store/theme-context";
 
 function App() {
-  const [showStream, setShowStream] = useState(false);
-  const [searchedStreams, setSearchedStreams] = useState([]);
+  const ctx = useContext(ThemeContext);
 
-  console.log(searchedStreams);
-
-  const addStream = (value) => {
-    setShowStream(true);
-    setSearchedStreams([...searchedStreams, value]);
-  };
+  console.log(ctx.searchedStreams);
+  console.log(ctx.searchedStreams.length);
 
   return (
     <Fragment>
-      <Header setStreams={setSearchedStreams} addStream={addStream}>
-        <SettingModal />
-      </Header>
+      <Header>{<SettingModal />}</Header>
       <SideBar />
-      {!showStream && <HomePage onClick={addStream} />}
-      {showStream && (
+      {!ctx.showStream && <HomePage onClick={ctx.addStream} />}
+      {ctx.showStream && (
         <Container>
-          <Chat url={searchedStreams} />
-          <Stream searchedStreams={searchedStreams} />
+          <Chat url={ctx.searchedToChat} />
+          <Stream />
         </Container>
       )}
     </Fragment>
@@ -38,16 +32,3 @@ function App() {
 }
 
 export default App;
-
-// {streamList.map((stream) => (
-//   <Stream url={stream.url} />
-// ))}
-
-// const streamList = [
-//   {
-//     url: "http://twitter.com",
-//   },
-//   {
-//     url: "http://twitch.com",
-//   },
-// ];
