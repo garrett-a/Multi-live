@@ -1,6 +1,6 @@
 .parent {
   display: grid;
-  grid-template-columns: 1fr 350px;
+  grid-template-columns: 1fr 1fr 350px;
   grid-template-rows: repeat(2, 1fr);
   overflow: hidden;
   justify-items: center;

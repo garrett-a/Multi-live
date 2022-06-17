@@ -9,7 +9,8 @@ const Chat = (props) => {
         title="1"
         id="twitch-chat-embed"
         src={`https://www.twitch.tv/embed/${props.url}/chat?parent=localhost`}
-        height="100%"
+        height="99%"
+        width="350px"
       ></iframe>
     </div>
   );
