@@ -7,22 +7,32 @@ import classes from "./Stream.module.css";
 
 const Stream = (props) => {
   // const wrapperRef = useRef("");
-  const ctx = useContext(ThemeContext);
 
   // const wrapper = wrapperRef.current;
-  // wrapper.className = `${classes.wrapperOneStream} ${
+  // const stylesWrapper = `${classes.wrapperOneStream} ${
   //   ctx.searchedStreams.length === 2 && classes.wrapperTwoStreams
   // }`;
   // const stylesPlayer = `${classes.player1} ${
   //   ctx.searchedStreams.length === 2 && classes.player2
   // }`;
+  const ctx = useContext(ThemeContext);
+  const stylesWrapper = `${
+    ctx.searchedStreams.length === 1 ? `${classes.wrapperOneStream}` : ""
+  } ${ctx.searchedStreams.length === 2 ? `${classes.wrapperTwoStreams}` : ""}${
+    ctx.searchedStreams.length === 3 ? `${classes.wrapperThreeStreams}` : ""
+  }`;
+  const stylesPlayer = `${
+    ctx.searchedStreams.length === 1 ? `${classes.player1}` : ""
+  } ${ctx.searchedStreams.length === 2 ? `${classes.player2}` : ""} ${
+    ctx.searchedStreams.length === 3 ? `${classes.player3}` : ""
+  }`;
 
   return (
     <Fragment>
       {ctx.searchedStreams.map((label) => (
-        <div className={classes.wrapperTwoStreams} key={label}>
+        <div className={stylesWrapper} key={label}>
           <ReactPlayer
-            className={classes.player2}
+            className={stylesPlayer}
             url={`https://www.twitch.tv/${label}`}
             width="100%"
             theme="dark"
