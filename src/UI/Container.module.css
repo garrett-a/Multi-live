@@ -4,4 +4,5 @@
   grid-template-rows: repeat(2, 1fr);
   overflow: hidden;
   justify-items: center;
+  margin-left: 4.8rem;
 }
