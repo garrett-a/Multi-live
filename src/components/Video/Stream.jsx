@@ -27,11 +27,14 @@ const Stream = (props) => {
     ctx.searchedStreams.length === 3 ? `${classes.player3}` : ""
   }`;
 
+  console.log(stylesPlayer);
+
   return (
     <Fragment>
       {ctx.searchedStreams.map((label) => (
         <div className={stylesWrapper} key={label}>
           <ReactPlayer
+            key={label}
             className={stylesPlayer}
             url={`https://www.twitch.tv/${label}`}
             width="100%"
