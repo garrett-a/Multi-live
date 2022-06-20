@@ -13,11 +13,19 @@
 
 .playerOne3Streams {
   min-width: 0;
-  max-width: 100%;
-  min-height: 0;
+  max-width: 70%;
+  min-height: 70%;
   aspect-ratio: 16 / 9;
 }
 
 .playerOne3Streams:first-child {
   grid-column: span 2;
+}
+
+.playerOne3Streams:nth-child(2) {
+  justify-self: end;
+}
+
+.playerOne3Streams:nth-child(3) {
+  justify-self: start;
 }
