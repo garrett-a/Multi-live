@@ -23,8 +23,8 @@ function App() {
       {!ctx.showStream && <HomePage onClick={ctx.addStream} />}
       {ctx.showStream && (
         <Container>
-          <Chat url={ctx.searchedToChat} />
           <Stream />
+          <Chat url={ctx.searchedToChat} />
         </Container>
       )}
     </Fragment>

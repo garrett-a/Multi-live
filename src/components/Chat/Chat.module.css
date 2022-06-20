@@ -1,13 +1,9 @@
-/* .chat {
-  position: absolute;
-  right: 0;
-  top: 2rem;
-  height: 95vh;
-} */
-
 .chat {
-  grid-area: 1 / 3 / 3 / 4;
-  justify-self: end;
+  grid-area: chat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
   max-height: 100%;
   max-width: 350px;
 }
