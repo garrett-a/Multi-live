@@ -3,6 +3,7 @@
   max-width: 100%;
   min-height: 100%;
   aspect-ratio: 16 / 9;
+  position: relative;
 }
 
 .player {
@@ -16,6 +17,7 @@
   max-width: 70%;
   min-height: 70%;
   aspect-ratio: 16 / 9;
+  position: relative;
 }
 
 .playerOne3Streams:first-child {
@@ -28,4 +30,27 @@
 
 .playerOne3Streams:nth-child(3) {
   justify-self: start;
+}
+
+.overlay {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  top: 0.5rem;
+  z-index: 999;
+  height: 4rem;
+  width: 100%;
+  background-color: rgba(76, 23, 222, 0.645);
+  color: white;
+  padding: 1.6rem;
+}
+
+.overlay i {
+  font-size: 4rem;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+.overlay i:hover {
+  transform: scale(1.25);
 }

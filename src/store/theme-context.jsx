@@ -1,5 +1,4 @@
-import React, { useState, useRef } from "react";
-import classes from "./theme-context.module.css";
+import React, { useState } from "react";
 
 const ThemeContext = React.createContext({
   showStream: false,
@@ -12,8 +11,6 @@ const ThemeContext = React.createContext({
 });
 
 export const ThemeContextProvider = (props) => {
-  const wrapperRef = useRef(null);
-
   const [showStream, setShowStream] = useState(false);
   const [searchedStreams, setSearchedStreams] = useState([]);
   const [searchedToChat, setSearchedToChat] = useState("");
@@ -22,40 +19,16 @@ export const ThemeContextProvider = (props) => {
     setShowStream(true);
     setSearchedStreams([...searchedStreams, value]);
     setSearchedToChat(value);
-    // playerWrapperClasses();
-    // playerClasses();
   };
-
-  // const playerWrapperClasses = () => {
-  //   if (searchedStreams.length === 1) {
-  //     const wrapper = wrapperRef.current;
-  //     wrapper.className = `${classes.wrapperOneStream}`;
-  //   }
-
-  //   if (searchedStreams.length === 2) {
-  //     return `${classes.wrapperTwoStreams}`;
-  //   }
-  // };
-
-  // const playerClasses = () => {
-  //   if (searchedStreams.length === 1) {
-  //     return `${classes.player1}`;
-  //   }
-  //   if (searchedStreams.length === 2) {
-  //     return `${classes.player2}`;
-  //   }
-  // };
 
   return (
     <ThemeContext.Provider
       value={{
         searchedStreams: searchedStreams,
+        setSearchedStreams: setSearchedStreams,
         showStream: showStream,
         searchedToChat: searchedToChat,
         addStream: addStream,
-        // playerWrapperClasses: playerWrapperClasses,
-        // playerClasses: playerClasses,
-        wrapperRef: wrapperRef,
       }}
     >
       {props.children}

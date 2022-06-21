@@ -13,9 +13,6 @@ import ThemeContext from "./store/theme-context";
 function App() {
   const ctx = useContext(ThemeContext);
 
-  console.log(ctx.searchedStreams);
-  console.log(ctx.searchedStreams.length);
-
   return (
     <Fragment>
       <Header>{<SettingModal />}</Header>
