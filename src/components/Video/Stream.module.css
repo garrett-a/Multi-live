@@ -32,25 +32,34 @@
   justify-self: start;
 }
 
+/* OVERLAY */
 .overlay {
   position: absolute;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  top: 0.5rem;
+  top: 0rem;
+  right: 0rem;
   z-index: 999;
-  height: 4rem;
-  width: 100%;
-  background-color: rgba(76, 23, 222, 0.645);
+  height: 8rem;
+  width: 50%;
+  background-color: rgba(44, 10, 137, 0.645);
+  border-radius: 8px;
   color: white;
   padding: 1.6rem;
+  opacity: 0;
+  transition: all 0.3s ease-in;
 }
 
 .overlay i {
   font-size: 4rem;
-  font-weight: bold;
   transition: all 0.3s;
 }
+
+.overlay:hover {
+  opacity: 1;
+}
+
 .overlay i:hover {
-  transform: scale(1.25);
+  transform: scale(1.1);
 }
