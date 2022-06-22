@@ -4,6 +4,7 @@ const ThemeContext = React.createContext({
   showStream: false,
   searchedStreams: [],
   searchedToChat: "",
+  setSearchedToChat: () => {},
   addStream: () => {},
   playerWrapperClasses: {},
   playerClasses: () => {},
@@ -28,6 +29,7 @@ export const ThemeContextProvider = (props) => {
         setSearchedStreams: setSearchedStreams,
         showStream: showStream,
         searchedToChat: searchedToChat,
+        setSearchedToChat: setSearchedToChat,
         addStream: addStream,
       }}
     >

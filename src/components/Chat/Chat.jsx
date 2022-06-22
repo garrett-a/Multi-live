@@ -11,7 +11,6 @@ const Chat = () => {
     <Fragment>
       <div className={classes.chat}>
         <TabBar />
-
         <iframe
           title="1"
           id="twitch-chat-embed"
