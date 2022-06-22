@@ -8,18 +8,31 @@ const ThemeContext = React.createContext({
   addStream: () => {},
   playerWrapperClasses: {},
   playerClasses: () => {},
-  wrapperRef: null,
+  muteAllHandler: () => {},
+  streamMuted: false,
 });
 
 export const ThemeContextProvider = (props) => {
   const [showStream, setShowStream] = useState(false);
   const [searchedStreams, setSearchedStreams] = useState([]);
   const [searchedToChat, setSearchedToChat] = useState("");
+  const [streamMuted, setStreamMuted] = useState(false);
 
   const addStream = (value) => {
     setShowStream(true);
     setSearchedStreams([...searchedStreams, value]);
     setSearchedToChat(value);
+
+    if (
+      !searchedStreams[searchedStreams.length - 1] &&
+      searchedStreams.length > 1
+    ) {
+      setStreamMuted(true);
+    }
+  };
+
+  const muteAllHandler = () => {
+    setStreamMuted(true);
   };
 
   return (
@@ -31,6 +44,9 @@ export const ThemeContextProvider = (props) => {
         searchedToChat: searchedToChat,
         setSearchedToChat: setSearchedToChat,
         addStream: addStream,
+        muteAllHandler: muteAllHandler,
+        streamMuted: streamMuted,
+        setStreamMuted: setStreamMuted,
       }}
     >
       {props.children}

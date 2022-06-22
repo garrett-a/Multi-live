@@ -11,12 +11,6 @@ const AsyncSearchBar = () => {
 
   const [query, setQuery] = useState("");
 
-  // const renderStreamHandler = () => {
-  //   if (query !== "") {
-  //     // addStream();
-  //   }
-  // };
-
   const resetInput = () => {
     setQuery("");
   };
@@ -57,6 +51,8 @@ const AsyncSearchBar = () => {
 
     console.log(responseData);
     console.log(result);
+    console.log(query);
+    console.log(ctx.searchedStreams);
 
     return result;
   };
@@ -115,5 +111,3 @@ const AsyncSearchBar = () => {
 };
 
 export default AsyncSearchBar;
-
-// getOptionLabel={(e) => e.label}

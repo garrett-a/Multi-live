@@ -6,23 +6,11 @@ import ReactPlayer from "react-player";
 import classes from "./Stream.module.css";
 
 const Stream = () => {
-  // const [isHovering, setIsHovering] = useState("");
   const ctx = useContext(ThemeContext);
-
-  // const handleMouseOver = (url) => {
-  //   setIsHovering(url);
-
-  //   console.log(url);
-  // };
-
-  // const handleMouseOut = () => {
-  //   setIsHovering(false);
-  // };
 
   const deleteStream = (url) => {
     const newStreams = ctx.searchedStreams.filter((stream) => stream !== url);
     ctx.setSearchedStreams(newStreams);
-    console.log(ctx.searchedStreams);
   };
 
   const wrapperStyles = `${
@@ -34,15 +22,7 @@ const Stream = () => {
   return (
     <Fragment>
       {ctx.searchedStreams.map((url) => (
-        <div
-          // onMouseOver={() => {
-          //   handleMouseOver(url);
-          // }}
-          // onMouseOut={handleMouseOut}
-          className={wrapperStyles}
-          key={url}
-          id={url}
-        >
+        <div className={wrapperStyles} key={url} id={url}>
           <div className={classes.overlay}>
             <i
               onClick={() => {
@@ -60,6 +40,8 @@ const Stream = () => {
             height="100%"
             theme="dark"
             playing={true}
+            volume={0.5}
+            muted={ctx.streamMuted}
           />
         </div>
       ))}
@@ -68,5 +50,3 @@ const Stream = () => {
 };
 
 export default Stream;
-
-// className={stylesWrapper}

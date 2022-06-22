@@ -7,13 +7,14 @@
   background-color: #1a1a1a;
   color: #fff;
   padding: 1rem 6rem;
+  position: relative;
 }
 
 h1 {
   font-size: 4rem;
 }
 
-button {
-  height: 2rem;
-  width: 4rem;
+i {
+  position: relative;
+  cursor: pointer;
 }
