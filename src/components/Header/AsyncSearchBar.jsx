@@ -49,11 +49,6 @@ const AsyncSearchBar = () => {
       };
     });
 
-    console.log(responseData);
-    console.log(result);
-    console.log(query);
-    console.log(ctx.searchedStreams);
-
     return result;
   };
 

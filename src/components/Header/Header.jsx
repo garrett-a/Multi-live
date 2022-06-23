@@ -11,7 +11,17 @@ const Header = (props) => {
     <header className={classes.header}>
       <h1>Twitch Player</h1>
       <AsyncSearchBar className={classes.searchBar} />
-      <i onClick={() => setOpen(!open)} class="fa-solid fa-bars"></i>
+      {!open && (
+        <div className={classes.icon}>
+          <i onClick={() => setOpen(!open)} className="fa-solid fa-bars"></i>
+        </div>
+      )}
+      {open && (
+        <div className={classes.icon}>
+          <i onClick={() => setOpen(open)} className="fa-solid fa-xmark"></i>
+        </div>
+      )}
+
       {open && <SettingModal setOpen={setOpen} open={open} />}
     </header>
   );

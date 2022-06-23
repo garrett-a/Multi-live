@@ -16,17 +16,19 @@
   padding: 0.5rem 0.3rem;
 }
 
-p {
+.modal p {
   text-align: center;
   font-size: 3.2rem;
 }
 
-i {
+.modal i {
+  height: 2.4rem;
+  width: 2.4rem;
   font-size: 2.4rem;
   margin-right: 1rem;
 }
 
-.icon {
+.modal .icons {
   display: flex;
   justify-content: start;
   align-items: center;
@@ -36,7 +38,7 @@ i {
   padding: 1rem;
 }
 
-.icon:hover {
+.icons:hover {
   background-color: #5a5a5a;
   transition: all 0.3s;
   cursor: pointer;

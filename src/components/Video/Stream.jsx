@@ -28,7 +28,7 @@ const Stream = () => {
               onClick={() => {
                 deleteStream(url);
               }}
-              class="fa-solid fa-xmark"
+              className="fa-solid fa-xmark"
             ></i>
           </div>
 
@@ -39,9 +39,14 @@ const Stream = () => {
             width="100%"
             height="100%"
             theme="dark"
-            playing={true}
-            volume={0.5}
-            muted={ctx.streamMuted}
+            playing={ctx.streamsPlaying}
+            volume={ctx.streamMuted}
+            controls={true}
+            onPlay={() => ctx.setStreamsPlaying(true)}
+            onPause={() => ctx.setStreamsPlaying(false)}
+            onEnded={() => ctx.setStreamsPlaying(false)}
+
+            // CHECK FOR ONPAUSE /////////////
           />
         </div>
       ))}

@@ -15,6 +15,8 @@ export default function ScrollableTabsButtonForce() {
     ctx.setSearchedToChat(newValue);
   };
 
+  // setSearchedStreams([...searchedStreams, value]);
+
   console.log(value);
   console.log(ctx.searchedToChat);
 
@@ -41,7 +43,7 @@ export default function ScrollableTabsButtonForce() {
           aria-label="scrollable force tabs example"
         >
           {ctx.searchedStreams.map((url) => (
-            <Tab value={url} label={url} />
+            <Tab key={url} value={url} label={url} />
           ))}
         </Tabs>
       </Box>

@@ -9,30 +9,38 @@ const ThemeContext = React.createContext({
   playerWrapperClasses: {},
   playerClasses: () => {},
   muteAllHandler: () => {},
-  streamMuted: false,
+  streamMuted: 0.5,
+  streamsPlaying: true,
+  setStreamsPlaying: () => {},
+  pauseAllHandler: () => {},
 });
 
 export const ThemeContextProvider = (props) => {
   const [showStream, setShowStream] = useState(false);
   const [searchedStreams, setSearchedStreams] = useState([]);
   const [searchedToChat, setSearchedToChat] = useState("");
-  const [streamMuted, setStreamMuted] = useState(false);
+  const [streamMuted, setStreamMuted] = useState(0.5);
+  const [streamsPlaying, setStreamsPlaying] = useState(true);
+
+  console.log(streamsPlaying);
 
   const addStream = (value) => {
     setShowStream(true);
     setSearchedStreams([...searchedStreams, value]);
     setSearchedToChat(value);
-
-    if (
-      !searchedStreams[searchedStreams.length - 1] &&
-      searchedStreams.length > 1
-    ) {
-      setStreamMuted(true);
-    }
   };
 
   const muteAllHandler = () => {
-    setStreamMuted(true);
+    if (streamMuted > 0) {
+      setStreamMuted(0);
+    } else {
+      setStreamMuted(0.5);
+    }
+  };
+
+  const pauseAllHandler = () => {
+    setStreamsPlaying(!streamsPlaying);
+    console.log(streamsPlaying);
   };
 
   return (
@@ -47,6 +55,9 @@ export const ThemeContextProvider = (props) => {
         muteAllHandler: muteAllHandler,
         streamMuted: streamMuted,
         setStreamMuted: setStreamMuted,
+        streamsPlaying: true,
+        setStreamsPlaying: setStreamsPlaying,
+        pauseAllHandler: pauseAllHandler,
       }}
     >
       {props.children}

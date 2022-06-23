@@ -24,22 +24,56 @@ const SettingModal = (props) => {
     <Fragment>
       <div ref={ref} className={classes.modal}>
         <p>Settings</p>
-        <div
-          onClick={() => {
-            ctx.muteAllHandler();
-            props.setOpen(false);
-          }}
-          className={classes.icon}
-        >
-          <i class="fa-solid fa-volume-xmark"></i>
-          <span>Mute all</span>
-        </div>
-        <div className={classes.icon}>
-          <i class="fa-solid fa-circle-pause"></i>
-          <span>Pause all</span>
-        </div>
-        <div className={classes.icon}>
-          <i class="fa-solid fa-arrows-rotate"></i>
+        {ctx.streamMuted >= 0.5 && (
+          <div
+            onClick={() => {
+              ctx.muteAllHandler();
+              props.setOpen(false);
+            }}
+            className={classes.icons}
+          >
+            <i className="fa-solid fa-volume-xmark"></i>
+            <span>Mute all</span>
+          </div>
+        )}
+        {ctx.streamMuted === 0 && (
+          <div
+            onClick={() => {
+              ctx.muteAllHandler();
+              props.setOpen(false);
+            }}
+            className={classes.icons}
+          >
+            <i className="fa-solid fa-volume-high"></i>
+            <span>Unmute all</span>
+          </div>
+        )}
+        {ctx.streamsPlaying && (
+          <div
+            onClick={() => {
+              ctx.pauseAllHandler();
+              props.setOpen(false);
+            }}
+            className={classes.icons}
+          >
+            <i className="fa-solid fa-circle-pause"></i>
+            <span>Pause all</span>
+          </div>
+        )}
+        {!ctx.streamsPlaying && (
+          <div
+            onClick={() => {
+              ctx.setStreamsPlaying(true);
+              props.setOpen(false);
+            }}
+            className={classes.icons}
+          >
+            <i className="fa-solid fa-circle-play"></i>
+            <span>Play all</span>
+          </div>
+        )}
+        <div className={classes.icons}>
+          <i className="fa-solid fa-arrows-rotate"></i>
           <span>Rotate Layout</span>
         </div>
       </div>
