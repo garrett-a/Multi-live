@@ -1,6 +1,36 @@
-.input {
-  color: black;
+.searchBar {
   width: 350px;
   font-size: 1.6rem;
-  transform: translate(-31%);
+  margin-right: 20rem;
 }
+
+.input menuList {
+  background-color: red;
+}
+
+.react-select__control {
+  background-color: red;
+  width: 300px;
+}
+/* clearIndicator
+container
+control
+dropdownIndicator
+group
+groupHeading
+indicatorsContainer
+indicatorSeparator
+input
+loadingIndicator
+loadingMessage
+menu
+menuList
+menuPortal
+multiValue
+multiValueLabel
+multiValueRemove
+noOptionsMessage
+option
+placeholder
+singleValue
+valueContainer */

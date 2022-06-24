@@ -4,6 +4,7 @@ import makeAnimated from "react-select/animated";
 import ThemeContext from "../../store/theme-context";
 
 import classes from "./AsyncSearchBar.module.css";
+import { borderRadius } from "@mui/system";
 
 const AsyncSearchBar = () => {
   const ctx = useContext(ThemeContext);
@@ -85,13 +86,66 @@ const AsyncSearchBar = () => {
     </div>
   );
 
+  const customStyles = {
+    option: (provided, state) => ({
+      ...provided,
+      backgroundColor: "#1a1a1a",
+      color: "#fff",
+      borderBottom: "1px solid #2d2d2d",
+      borderRadius: "8px",
+    }),
+    menu: (provided, state) => ({
+      ...provided,
+      backgroundColor: "#1a1a1a",
+      color: "#fff",
+      borderBottom: "1px solid #2d2d2d",
+      borderRadius: "8px",
+    }),
+    control: (provided) => ({
+      ...provided,
+      backgroundColor: "#353535",
+      border: "2px solid #5c5c5c",
+      borderRadius: "8px",
+    }),
+    menuList: (provided) => ({
+      ...provided,
+      backgroundColor: "#1a1a1a",
+      border: "1px solid #5c5c5c",
+      borderRadius: "8px",
+
+      "::-webkit-scrollbar": {
+        width: "12px",
+        borderRadius: "8px",
+      },
+      "::-webkit-scrollbar-track": {
+        background: "#434343",
+        borderRadius: "8px",
+      },
+      "::-webkit-scrollbar-thumb": {
+        background: "#4b05c4",
+        borderRadius: "8px",
+      },
+      "::-webkit-scrollbar-thumb:hover": {
+        background: "#555555",
+      },
+    }),
+    placeholder: (provided) => ({
+      ...provided,
+      color: "#fff",
+    }),
+    input: (provided) => ({
+      ...provided,
+      color: "#ffffff",
+    }),
+  };
+
   return (
     <Fragment>
       <AsyncSelect
         cacheOptions
         components={animatedComponents}
         placeholder="Search streams"
-        className={classes.input}
+        className={classes.searchBar}
         getOptionLabel={optionLabel}
         getOptionValue={(e) => e.value}
         loadOptions={fetchStreams}
@@ -100,6 +154,7 @@ const AsyncSearchBar = () => {
         escapeClearsValue={true}
         onBlur={resetInput}
         value={query}
+        styles={customStyles}
       />
     </Fragment>
   );
