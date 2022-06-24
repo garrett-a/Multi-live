@@ -93,6 +93,12 @@ const AsyncSearchBar = () => {
       color: "#fff",
       borderBottom: "1px solid #2d2d2d",
       borderRadius: "8px",
+      ":hover": {
+        backgroundColor: "#3a3a3a",
+      },
+      ":active": {
+        backgroundColor: "#3a3a3a",
+      },
     }),
     menu: (provided, state) => ({
       ...provided,
@@ -126,7 +132,7 @@ const AsyncSearchBar = () => {
         borderRadius: "8px",
       },
       "::-webkit-scrollbar-thumb:hover": {
-        background: "#555555",
+        background: "#5b14d4",
       },
     }),
     placeholder: (provided) => ({

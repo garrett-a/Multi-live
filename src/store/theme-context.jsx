@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const ThemeContext = React.createContext({
   showStream: false,
+  setShowStream: () => {},
   searchedStreams: [],
   searchedToChat: "",
   setSearchedToChat: () => {},
@@ -23,6 +24,7 @@ export const ThemeContextProvider = (props) => {
   const [streamsPlaying, setStreamsPlaying] = useState(true);
 
   console.log(streamsPlaying);
+  console.log(searchedToChat);
 
   const addStream = (value) => {
     setShowStream(true);
@@ -49,6 +51,7 @@ export const ThemeContextProvider = (props) => {
         searchedStreams: searchedStreams,
         setSearchedStreams: setSearchedStreams,
         showStream: showStream,
+        setShowStream: setShowStream,
         searchedToChat: searchedToChat,
         setSearchedToChat: setSearchedToChat,
         addStream: addStream,
