@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 const ThemeContext = React.createContext({
   showStream: false,
@@ -14,6 +14,7 @@ const ThemeContext = React.createContext({
   streamsPlaying: true,
   setStreamsPlaying: () => {},
   pauseAllHandler: () => {},
+  streamWrapperRef: null,
 });
 
 export const ThemeContextProvider = (props) => {
@@ -22,6 +23,8 @@ export const ThemeContextProvider = (props) => {
   const [searchedToChat, setSearchedToChat] = useState("");
   const [streamMuted, setStreamMuted] = useState(0.5);
   const [streamsPlaying, setStreamsPlaying] = useState(true);
+
+  const streamWrapperRef = useRef(null);
 
   console.log(streamsPlaying);
   console.log(searchedToChat);
@@ -61,6 +64,7 @@ export const ThemeContextProvider = (props) => {
         streamsPlaying: true,
         setStreamsPlaying: setStreamsPlaying,
         pauseAllHandler: pauseAllHandler,
+        streamWrapperRef: streamWrapperRef,
       }}
     >
       {props.children}

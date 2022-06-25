@@ -1,11 +1,13 @@
 import React, { Fragment, useContext, useEffect, useRef } from "react";
 
 import classes from "./SettingModal.module.css";
+import styles from "../../UI/Container.module.css";
 import ThemeContext from "../../store/theme-context";
 
 const SettingModal = (props) => {
   const ctx = useContext(ThemeContext);
   const ref = useRef();
+  const streamWrapperRef = ctx.streamWrapperRef.current;
 
   useEffect(() => {
     const checkIfClickedOutside = (e) => {
@@ -19,6 +21,36 @@ const SettingModal = (props) => {
       document.removeEventListener("mousedown", checkIfClickedOutside);
     };
   });
+
+  // const rotateStreamsHandler = () => {
+  //   `${ctx.searchedStreams.length === 1 ? `${classes.container1}` : ""} ${
+  //     ctx.searchedStreams.length === 2 ? `${classes.container2}` : ""
+  //   }${ctx.searchedStreams.length === 3 ? `${classes.container3}` : ""}${
+  //     ctx.searchedStreams.length === 4 ? `${classes.container4}` : ""
+  //   }`;
+  // };
+
+  const refFunc = () => {
+    // streamWrapperRef.current.classList.toggle(`${styles.wrapperTwoStreams}`);
+    if (streamWrapperRef.classList.contains(`${styles.container3p1}`)) {
+      streamWrapperRef.classList.remove(`${styles.container3p1}`);
+      streamWrapperRef.classList.add(`${styles.container3p2}`);
+    } else if (streamWrapperRef.classList.contains(`${styles.container3p2}`)) {
+      streamWrapperRef.classList.remove(`${styles.container3p2}`);
+      streamWrapperRef.classList.add(`${styles.container3p3}`);
+    } else {
+      streamWrapperRef.classList.remove(`${styles.container3p3}`);
+      streamWrapperRef.classList.add(`${styles.container3p1}`);
+    }
+
+    console.log(streamWrapperRef);
+  };
+
+  // element.classList.forEach(className => {
+  //   console.log(className)
+  // })
+
+  // ${styles.playerOne3StreamsToggle}
 
   return (
     <Fragment>
@@ -72,7 +104,7 @@ const SettingModal = (props) => {
             <span>Play all</span>
           </div>
         )}
-        <div className={classes.icons}>
+        <div onClick={refFunc} className={classes.icons}>
           <i className="fa-solid fa-arrows-rotate"></i>
           <span>Rotate Layout</span>
         </div>

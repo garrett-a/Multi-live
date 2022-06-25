@@ -6,22 +6,39 @@
   position: relative;
 }
 
-.wrapper .stream1 {
+.wrapper:nth-child(1) {
   grid-area: stream1;
 }
-.wrapper .stream2 {
+.wrapper:nth-child(2) {
   grid-area: stream2;
 }
+.wrapper:nth-child(3) {
+  grid-area: stream3;
+}
+.wrapper:nth-child(4) {
+  grid-area: stream4;
+}
 
-.player {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.wrapperTwoStreams:nth-child(1) {
+  min-width: 0;
+  max-width: 100%;
+  min-height: 100%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  grid-area: stream2;
+}
+.wrapperTwoStreams:nth-child(2) {
+  min-width: 0;
+  max-width: 100%;
+  min-height: 100%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  grid-area: stream1;
 }
 
 .playerOne3Streams {
   min-width: 0;
-  max-width: 70%;
+  max-width: 100%;
   min-height: 70%;
   aspect-ratio: 16 / 9;
   position: relative;
@@ -29,14 +46,23 @@
 
 .playerOne3Streams:first-child {
   grid-column: span 2;
+  grid-area: stream1;
 }
 
 .playerOne3Streams:nth-child(2) {
-  justify-self: end;
+  grid-area: stream2;
+  /* justify-self: end; */
 }
 
 .playerOne3Streams:nth-child(3) {
-  justify-self: start;
+  grid-area: stream3;
+  /* justify-self: start; */
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* OVERLAY */

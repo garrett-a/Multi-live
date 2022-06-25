@@ -4,7 +4,6 @@ import makeAnimated from "react-select/animated";
 import ThemeContext from "../../store/theme-context";
 
 import classes from "./AsyncSearchBar.module.css";
-import { borderRadius } from "@mui/system";
 
 const AsyncSearchBar = () => {
   const ctx = useContext(ThemeContext);

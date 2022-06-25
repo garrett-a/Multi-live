@@ -10,7 +10,6 @@ const HomePage = (props) => {
     <Fragment>
       <div className={classes.homepage}>
         <h2>Welcome</h2>
-        {/* <button onClick={props.onClick}>Clickme</button> */}
         <button>
           <a onClick={console.log(document.location.hash)} href={authHref}>
             Authorize
