@@ -16,7 +16,7 @@ function App() {
     <Fragment>
       <Header />
       <SideBar />
-      {!ctx.showStream && <HomePage onClick={ctx.addStream} />}
+      {!ctx.showStream && <HomePage />}
       {ctx.showStream && (
         <Container>
           <Stream />

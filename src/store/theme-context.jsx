@@ -30,9 +30,14 @@ export const ThemeContextProvider = (props) => {
   console.log(searchedToChat);
 
   const addStream = (value) => {
-    setShowStream(true);
-    setSearchedStreams([...searchedStreams, value]);
-    setSearchedToChat(value);
+    if (searchedStreams.length <= 3) {
+      setShowStream(true);
+      setSearchedStreams([...searchedStreams, value]);
+      setSearchedToChat(value);
+    } else {
+      return alert("Only 4 streams supported");
+    }
+    console.log(searchedStreams.length);
   };
 
   const muteAllHandler = () => {

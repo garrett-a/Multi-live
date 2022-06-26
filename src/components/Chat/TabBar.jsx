@@ -13,6 +13,7 @@ export default function ScrollableTabsButtonForce() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
     ctx.setSearchedToChat(newValue);
+    console.log(newValue);
   };
 
   console.log(value);

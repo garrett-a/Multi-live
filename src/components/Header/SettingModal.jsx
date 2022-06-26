@@ -22,14 +22,7 @@ const SettingModal = (props) => {
     };
   });
 
-  // const rotateStreamsHandler = () => {
-  //   `${ctx.searchedStreams.length === 1 ? `${classes.container1}` : ""} ${
-  //     ctx.searchedStreams.length === 2 ? `${classes.container2}` : ""
-  //   }${ctx.searchedStreams.length === 3 ? `${classes.container3}` : ""}${
-  //     ctx.searchedStreams.length === 4 ? `${classes.container4}` : ""
-  //   }`;
-  // };
-
+  // ROTATE STREAMS
   const rotateStreamHandler = () => {
     // TWO STREAMS
     streamWrapperRef.classList.replace(
@@ -72,34 +65,7 @@ const SettingModal = (props) => {
         `${styles.container4p4}`,
         `${styles.container4p1}`
       );
-
-    console.log(streamWrapperRef);
   };
-  // const refFunc = () => {
-  //   // streamWrapperRef.current.classList.toggle(`${styles.wrapperTwoStreams}`);
-  //   if (streamWrapperRef.classList.contains(`${styles.container3p1}`)) {
-  //     streamWrapperRef.classList.remove(`${styles.container3p1}`);
-  //     streamWrapperRef.classList.add(`${styles.container3p2}`);
-  //   } else if (streamWrapperRef.classList.contains(`${styles.container3p2}`)) {
-  //     streamWrapperRef.classList.remove(`${styles.container3p2}`);
-  //     streamWrapperRef.classList.add(`${styles.container3p3}`);
-  //   } else {
-  //     streamWrapperRef.classList.remove(`${styles.container3p3}`);
-  //     streamWrapperRef.classList.add(`${styles.container3p1}`);
-  //   }
-
-  //   console.log(streamWrapperRef);
-  // };
-
-  //   el.classList.replace("state-1", "state-2") ||
-  //  el.classList.replace("state-2", "state-3") ||
-  //  el.classList.replace("state-3", "state-1");
-
-  // element.classList.forEach(className => {
-  //   console.log(className)
-  // })
-
-  // ${styles.playerOne3StreamsToggle}
 
   return (
     <Fragment>
@@ -156,6 +122,10 @@ const SettingModal = (props) => {
         <div onClick={rotateStreamHandler} className={classes.icons}>
           <i className="fa-solid fa-arrows-rotate"></i>
           <span>Rotate Layout</span>
+        </div>
+        <div className={classes.icons}>
+          <i class="fa-solid fa-comment-slash"></i>
+          <span>Hide chat</span>
         </div>
       </div>
     </Fragment>

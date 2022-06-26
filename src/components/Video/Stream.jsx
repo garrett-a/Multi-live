@@ -11,7 +11,8 @@ const Stream = () => {
   const deleteStream = (url) => {
     const newStreams = ctx.searchedStreams.filter((stream) => stream !== url);
     ctx.setSearchedStreams(newStreams);
-    if ((ctx.searchedToChat = 1)) {
+
+    if (ctx.searchedStreams.length <= 1) {
       ctx.setSearchedToChat("");
       ctx.setShowStream(!ctx.showStream);
     }
