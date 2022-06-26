@@ -16,6 +16,7 @@ export default function ScrollableTabsButtonForce() {
   };
 
   console.log(value);
+  console.log(...ctx.searchedStreams);
   console.log(ctx.searchedToChat);
 
   const darkTheme = createTheme({
