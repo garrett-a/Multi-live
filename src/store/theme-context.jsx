@@ -27,7 +27,6 @@ export const ThemeContextProvider = (props) => {
   const streamWrapperRef = useRef(null);
 
   console.log(streamsPlaying);
-  console.log(searchedToChat);
 
   const addStream = (value) => {
     if (searchedStreams.length <= 3) {
@@ -37,7 +36,6 @@ export const ThemeContextProvider = (props) => {
     } else {
       return alert("Only 4 streams supported");
     }
-    console.log(searchedStreams.length);
   };
 
   const muteAllHandler = () => {

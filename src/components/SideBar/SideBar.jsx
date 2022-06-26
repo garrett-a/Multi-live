@@ -18,7 +18,7 @@ const SideBar = () => {
   //   const responseData = await response.json();
   //   const result = responseData.data;
 
-  return <aside className={classes.sidebar}>Sidebar</aside>;
+  return <aside className={classes.sidebar}></aside>;
 };
 
 export default SideBar;

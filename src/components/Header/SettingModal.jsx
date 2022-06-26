@@ -98,7 +98,7 @@ const SettingModal = (props) => {
         {ctx.streamsPlaying && (
           <div
             onClick={() => {
-              ctx.pauseAllHandler();
+              ctx.setStreamsPlaying(false);
               props.setOpen(false);
             }}
             className={classes.icons}
@@ -107,7 +107,7 @@ const SettingModal = (props) => {
             <span>Pause all</span>
           </div>
         )}
-        {!ctx.streamsPlaying && (
+        {ctx.streamsPlaying && (
           <div
             onClick={() => {
               ctx.setStreamsPlaying(true);
@@ -124,7 +124,7 @@ const SettingModal = (props) => {
           <span>Rotate Layout</span>
         </div>
         <div className={classes.icons}>
-          <i class="fa-solid fa-comment-slash"></i>
+          <i className="fa-solid fa-comment-slash"></i>
           <span>Hide chat</span>
         </div>
       </div>

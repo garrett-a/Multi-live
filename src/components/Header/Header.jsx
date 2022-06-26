@@ -11,7 +11,8 @@ const Header = (props) => {
 
   return (
     <header className={classes.header}>
-      <h1>Twitch Player</h1>
+      <img src={require("../../assets/logo-small.png")} alt="logo" />
+      <h1>ulti-Live</h1>
       <AsyncSearchBar className={classes.searchBar} />
       {!open && (
         <div

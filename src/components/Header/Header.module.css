@@ -10,8 +10,12 @@
   position: relative;
 }
 
+img {
+  width: 55px;
+}
+
 h1 {
-  font-size: 4rem;
+  font-size: 3.8rem;
   margin-right: auto;
 }
 
