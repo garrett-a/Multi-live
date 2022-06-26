@@ -7,7 +7,7 @@ import classes from "./Stream.module.css";
 
 const Stream = () => {
   const ctx = useContext(ThemeContext);
-  
+
   const deleteStream = (url) => {
     const newStreams = ctx.searchedStreams.filter((stream) => stream !== url);
     ctx.setSearchedStreams(newStreams);
@@ -26,11 +26,7 @@ const Stream = () => {
   return (
     <Fragment>
       {ctx.searchedStreams.map((url) => (
-        <div
-          className={wrapperStyles}
-          key={url}
-          id={url}
-        >
+        <div className={wrapperStyles} key={url} id={url}>
           <div className={classes.overlay}>
             <i
               onClick={() => {

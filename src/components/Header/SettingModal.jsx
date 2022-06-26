@@ -30,21 +30,70 @@ const SettingModal = (props) => {
   //   }`;
   // };
 
-  const refFunc = () => {
-    // streamWrapperRef.current.classList.toggle(`${styles.wrapperTwoStreams}`);
-    if (streamWrapperRef.classList.contains(`${styles.container3p1}`)) {
-      streamWrapperRef.classList.remove(`${styles.container3p1}`);
-      streamWrapperRef.classList.add(`${styles.container3p2}`);
-    } else if (streamWrapperRef.classList.contains(`${styles.container3p2}`)) {
-      streamWrapperRef.classList.remove(`${styles.container3p2}`);
-      streamWrapperRef.classList.add(`${styles.container3p3}`);
-    } else {
-      streamWrapperRef.classList.remove(`${styles.container3p3}`);
-      streamWrapperRef.classList.add(`${styles.container3p1}`);
-    }
+  const rotateStreamHandler = () => {
+    // TWO STREAMS
+    streamWrapperRef.classList.replace(
+      `${styles.container2p1}`,
+      `${styles.container2p2}`
+    ) ||
+      streamWrapperRef.classList.replace(
+        `${styles.container2p2}`,
+        `${styles.container2p1}`
+      );
+
+    // THREE STREAMS
+    streamWrapperRef.classList.replace(
+      `${styles.container3p1}`,
+      `${styles.container3p2}`
+    ) ||
+      streamWrapperRef.classList.replace(
+        `${styles.container3p2}`,
+        `${styles.container3p3}`
+      ) ||
+      streamWrapperRef.classList.replace(
+        `${styles.container3p3}`,
+        `${styles.container3p1}`
+      );
+
+    // FOUR STREAMS
+    streamWrapperRef.classList.replace(
+      `${styles.container4p1}`,
+      `${styles.container4p2}`
+    ) ||
+      streamWrapperRef.classList.replace(
+        `${styles.container4p2}`,
+        `${styles.container4p3}`
+      ) ||
+      streamWrapperRef.classList.replace(
+        `${styles.container4p3}`,
+        `${styles.container4p4}`
+      ) ||
+      streamWrapperRef.classList.replace(
+        `${styles.container4p4}`,
+        `${styles.container4p1}`
+      );
 
     console.log(streamWrapperRef);
   };
+  // const refFunc = () => {
+  //   // streamWrapperRef.current.classList.toggle(`${styles.wrapperTwoStreams}`);
+  //   if (streamWrapperRef.classList.contains(`${styles.container3p1}`)) {
+  //     streamWrapperRef.classList.remove(`${styles.container3p1}`);
+  //     streamWrapperRef.classList.add(`${styles.container3p2}`);
+  //   } else if (streamWrapperRef.classList.contains(`${styles.container3p2}`)) {
+  //     streamWrapperRef.classList.remove(`${styles.container3p2}`);
+  //     streamWrapperRef.classList.add(`${styles.container3p3}`);
+  //   } else {
+  //     streamWrapperRef.classList.remove(`${styles.container3p3}`);
+  //     streamWrapperRef.classList.add(`${styles.container3p1}`);
+  //   }
+
+  //   console.log(streamWrapperRef);
+  // };
+
+  //   el.classList.replace("state-1", "state-2") ||
+  //  el.classList.replace("state-2", "state-3") ||
+  //  el.classList.replace("state-3", "state-1");
 
   // element.classList.forEach(className => {
   //   console.log(className)
@@ -104,7 +153,7 @@ const SettingModal = (props) => {
             <span>Play all</span>
           </div>
         )}
-        <div onClick={refFunc} className={classes.icons}>
+        <div onClick={rotateStreamHandler} className={classes.icons}>
           <i className="fa-solid fa-arrows-rotate"></i>
           <span>Rotate Layout</span>
         </div>

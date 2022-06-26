@@ -57,6 +57,7 @@ const AsyncSearchBar = () => {
       style={{
         display: "flex",
         alignContent: "center",
+        alignItems: "center",
       }}
     >
       <span>{e.img}</span>
@@ -68,12 +69,15 @@ const AsyncSearchBar = () => {
       {e.live && (
         <span
           style={{
+            height: "2rem",
+            width: "4rem",
             display: "flex",
             alignItems: "center",
+            justifyContent: "center",
             marginLeft: "auto",
             backgroundColor: "red",
             padding: "6px",
-            borderRadius: "10px",
+            borderRadius: "6px",
             fontSize: "11px",
             color: "#fff",
             fontWeight: "bold",
@@ -88,14 +92,11 @@ const AsyncSearchBar = () => {
   const customStyles = {
     option: (provided, state) => ({
       ...provided,
-      backgroundColor: "#1a1a1a",
+      backgroundColor: state.isFocused ? "#3a3a3a" : "#1a1a1a",
       color: "#fff",
       borderBottom: "1px solid #2d2d2d",
       borderRadius: "8px",
       ":hover": {
-        backgroundColor: "#3a3a3a",
-      },
-      ":active": {
         backgroundColor: "#3a3a3a",
       },
     }),
@@ -106,11 +107,15 @@ const AsyncSearchBar = () => {
       borderBottom: "1px solid #2d2d2d",
       borderRadius: "8px",
     }),
-    control: (provided) => ({
+    control: (provided, state) => ({
       ...provided,
       backgroundColor: "#353535",
-      border: "2px solid #5c5c5c",
       borderRadius: "8px",
+      ":active": {
+        backgroundColor: "#3a3a3a",
+      },
+      boxShadow: state.isFocused ? "0 0 0 2px #4b05c4" : "0 0 0 2px #3d03a1",
+      border: "none",
     }),
     menuList: (provided) => ({
       ...provided,

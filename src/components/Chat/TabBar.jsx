@@ -15,8 +15,6 @@ export default function ScrollableTabsButtonForce() {
     ctx.setSearchedToChat(newValue);
   };
 
-  // setSearchedStreams([...searchedStreams, value]);
-
   console.log(value);
   console.log(ctx.searchedToChat);
 
