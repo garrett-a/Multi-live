@@ -45,7 +45,6 @@
 }
 
 .playerOne3Streams:first-child {
-  grid-column: span 2;
   grid-area: stream1;
 }
 
@@ -71,15 +70,15 @@
 .overlay {
   position: absolute;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  top: 4.8rem;
+  top: 0rem;
   right: 0rem;
-  z-index: 999;
-  height: 8rem;
-  width: 50%;
-  background-color: rgba(44, 10, 137, 0.645);
-  border-radius: 8px;
+  z-index: 2;
+  height: 100%;
+  width: 5rem;
+  background-color: #0087f5c6;
+  border-radius: 4px;
   color: white;
   padding: 1.6rem;
   opacity: 0;
@@ -96,5 +95,5 @@
 }
 
 .overlay i:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
