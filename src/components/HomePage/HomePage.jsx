@@ -3,8 +3,8 @@ import React, { Fragment } from "react";
 import classes from "./HomePage.module.css";
 
 const HomePage = (props) => {
-  const scope = encodeURIComponent("user:read:follows");
-  const authHref = `https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=owb00645opxcsak6j0dwv4w5ue7pcb&redirect_uri=https://localhost&scope=${scope}`;
+  // const scope = encodeURIComponent("user:read:follows");
+  // const authHref = `https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=owb00645opxcsak6j0dwv4w5ue7pcb&redirect_uri=https://localhost&scope=${scope}`;
 
   return (
     <Fragment>
