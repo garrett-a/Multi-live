@@ -95,7 +95,7 @@ const SettingModal = (props) => {
             <span>Unmute all</span>
           </div>
         )}
-        {ctx.streamsPlaying && (
+        {/* {ctx.streamsPlaying && (
           <div
             onClick={() => {
               ctx.setStreamsPlaying(false);
@@ -118,15 +118,17 @@ const SettingModal = (props) => {
             <i className="fa-solid fa-circle-play"></i>
             <span>Play all</span>
           </div>
+        )} */}
+        {ctx.searchedStreams.length > 1 && (
+          <div onClick={rotateStreamHandler} className={classes.icons}>
+            <i className="fa-solid fa-arrows-rotate"></i>
+            <span>Rotate Layout</span>
+          </div>
         )}
-        <div onClick={rotateStreamHandler} className={classes.icons}>
-          <i className="fa-solid fa-arrows-rotate"></i>
-          <span>Rotate Layout</span>
-        </div>
-        <div className={classes.icons}>
+        {/* <div className={classes.icons}>
           <i className="fa-solid fa-comment-slash"></i>
           <span>Hide chat</span>
-        </div>
+        </div> */}
       </div>
     </Fragment>
   );
