@@ -14,7 +14,7 @@ const Chat = () => {
         <iframe
           title="1"
           id="twitch-chat-embed"
-          src={`https://www.twitch.tv/embed/${ctx.searchedToChat}/chat?darkpopout&parent=www.multi-live.netlify.app`}
+          src={`https://www.twitch.tv/embed/${ctx.searchedToChat}/chat?darkpopout&parent=multi-live.netlify.app`}
           // src={`https://www.twitch.tv/embed/${ctx.searchedToChat}/chat?darkpopout&parent=localhost`}
           height="100%"
           width="350px"
