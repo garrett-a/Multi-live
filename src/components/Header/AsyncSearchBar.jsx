@@ -107,9 +107,12 @@ const AsyncSearchBar = () => {
       borderBottom: "1px solid #2d2d2d",
       borderRadius: "8px",
     }),
-    control: (provided, state) => ({
+    control: (provided, state, base) => ({
       ...provided,
-      backgroundColor: "#353535",
+      ...base,
+      minHeight: "20px",
+      height: "30px",
+      backgroundColor: "#2c2c2c",
       borderRadius: "8px",
       ":active": {
         backgroundColor: "#3a3a3a",
@@ -141,10 +144,11 @@ const AsyncSearchBar = () => {
     }),
     placeholder: (provided) => ({
       ...provided,
-      color: "#fff",
+      color: "#aeaeae",
     }),
     input: (provided) => ({
       ...provided,
+
       color: "#ffffff",
     }),
   };

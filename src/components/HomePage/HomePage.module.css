@@ -1,19 +1,32 @@
 .homepage {
   color: #fff;
-  text-align: center;
-  background-color: grey;
-  width: 70rem;
-  height: 35rem;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 5rem auto;
+  margin: 0 auto;
   border-radius: 8px;
+  background-image: linear-gradient(
+      rgba(51, 51, 51, 0.625),
+      rgba(71, 71, 71, 0.56)
+    ),
+    url("../../assets/logo-large.png");
+  background-repeat: no-repeat;
+  background-position: right;
 }
 
 h2 {
-  font-size: 4rem;
+  font-size: 10rem;
+  font-weight: 700;
+  word-spacing: 1;
+}
+
+h3 {
+  font-size: 4.8rem;
+  font-weight: 500;
+  line-height: 1.2;
 }
 
 button {

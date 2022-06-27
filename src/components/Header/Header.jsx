@@ -12,7 +12,7 @@ const Header = (props) => {
   return (
     <header className={classes.header}>
       <img src={require("../../assets/logo-small.png")} alt="logo" />
-      <h1>ulti-Live</h1>
+      <h1>ulti-live</h1>
       <AsyncSearchBar className={classes.searchBar} />
       {!open && (
         <div

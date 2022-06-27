@@ -6,17 +6,21 @@
   align-items: center;
   background-color: #1a1a1a;
   color: #fff;
-  padding: 1rem 6rem;
+  padding: 0.5rem 6rem;
   position: relative;
+  box-shadow: 1px 1px 5px 2px #0087f567;
 }
 
 img {
   width: 55px;
+  filter: drop-shadow(3px 2px 2px #505050);
 }
 
 h1 {
   font-size: 3.8rem;
   margin-right: auto;
+  font-weight: 700;
+  font-family: "roboto";
 }
 
 .icon {
