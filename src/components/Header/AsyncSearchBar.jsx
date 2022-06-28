@@ -49,6 +49,7 @@ const AsyncSearchBar = () => {
       };
     });
 
+    console.log(result);
     return result;
   };
 
