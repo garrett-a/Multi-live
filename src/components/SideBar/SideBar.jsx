@@ -49,7 +49,19 @@ const SideBar = () => {
       return {
         label: item.user_name,
         id: item.id,
-        img: item.thumbnail_url,
+        img: (
+          <img
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "40px",
+              borderRadius: "50%",
+            }}
+            alt={item.label}
+            src={item.thumbnail_url}
+          />
+        ),
         game: item.game_name,
         views: item.viewer_count,
       };
@@ -64,7 +76,7 @@ const SideBar = () => {
         {userFollows.map((stream) => (
           <ul>
             <li id={stream.id}>
-              <img alt={stream.label} src={stream.img} />
+              <span>{stream.img}</span>
               <span>{stream.game}</span>
               <span>{stream.views}</span>
             </li>
