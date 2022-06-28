@@ -51,7 +51,7 @@ const SideBar = () => {
         img: item.profile_image_url,
       };
     });
-    console.log(resultUsers.img);
+    console.log(resultUsers);
 
     // GET USER FOLLOWED STREAMS
     const response = await fetch(
