@@ -31,7 +31,6 @@ const SideBar = () => {
         img: item.profile_image_url,
       };
     });
-    console.log(resultId);
 
     const response = await fetch(
       `https://api.twitch.tv/helix/streams/followed?user_id=${resultId[0].id}`,
@@ -45,6 +44,7 @@ const SideBar = () => {
       }
     );
     const responseData = await response.json();
+    console.log(responseData.data);
     const result = responseData.data.map((item) => {
       return {
         label: item.user_name,
