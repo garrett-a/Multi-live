@@ -81,7 +81,7 @@ const SideBar = () => {
               borderRadius: "50%",
             }}
             alt={item.label}
-            src={resultUsers.img}
+            src={resultUsers[0].img}
             // src={item.thumbnail_url.replace("{width}x{height}", "300x300")}
           />
         ),
