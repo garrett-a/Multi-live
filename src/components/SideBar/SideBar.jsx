@@ -59,11 +59,12 @@ const SideBar = () => {
               borderRadius: "50%",
             }}
             alt={item.label}
-            src={item.thumbnail_url}
+            src={item.thumbnail_url.replace("{width}x{height}", "300x300")}
           />
         ),
         game: item.game_name,
         views: item.viewer_count,
+        title: item.title,
       };
     });
     console.log(result);
