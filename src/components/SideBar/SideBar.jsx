@@ -38,7 +38,13 @@ const SideBar = () => {
       },
     });
     const responseDataId = await responseId.json();
-    const resultId = responseDataId.data;
+    const resultId = responseDataId.data.map((item) => {
+      return {
+        label: item.display_name,
+        id: item.id,
+        img: item.profile_image_url,
+      };
+    });
     console.log(resultId);
 
     const response = await fetch(
