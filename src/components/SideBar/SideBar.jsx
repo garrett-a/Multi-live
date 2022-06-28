@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import classes from "./SideBar.module.css";
 
 const SideBar = () => {
-  const parsedHash = new URLSearchParams(window.location.hash.substring(1));
-  const accessToken = parsedHash.get(parsedHash);
-  console.log(parsedHash);
-  console.log(accessToken);
+  const parsedHash = window.location.hash
+    .substring(1)
+    .replace("access_token=", "")
+    .split("&", [1]);
+
+  console.log(parsedHash[0]);
+
+  useEffect(() => {
+    fetchFollowers();
+  }, []);
 
   const fetchFollowers = async () => {
     const response = await fetch(
@@ -14,7 +20,7 @@ const SideBar = () => {
       {
         method: "GET",
         headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_TOKEN} `,
+          Authorization: `Bearer ${parsedHash} `,
           "Client-Id": `owb00645opxcsak6j0dwv4w5ue7pcb`,
           "Content-Type": "application/json",
         },
@@ -22,7 +28,9 @@ const SideBar = () => {
     );
     const responseData = await response.json();
     const result = responseData.data;
+    console.log(result);
   };
+
   return <aside className={classes.sidebar}></aside>;
 };
 
