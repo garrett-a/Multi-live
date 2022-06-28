@@ -33,26 +33,6 @@ const SideBar = () => {
       };
     });
 
-    // GET USERS FOR PROFILE PIC
-    const responseUsers = await fetch(
-      `https://api.twitch.tv/helix/users?id=${resultId[0].id}`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${parsedHash} `,
-          "Client-Id": `owb00645opxcsak6j0dwv4w5ue7pcb`,
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const responseDataUsers = await responseUsers.json();
-    const resultUsers = responseDataUsers.data.map((item) => {
-      return {
-        img: item.profile_image_url,
-      };
-    });
-    console.log(resultUsers);
-
     // GET USER FOLLOWED STREAMS
     const response = await fetch(
       `https://api.twitch.tv/helix/streams/followed?user_id=${resultId[0].id}`,
@@ -81,7 +61,7 @@ const SideBar = () => {
               borderRadius: "50%",
             }}
             alt={item.label}
-            src={resultUsers[0].img}
+            src={item.img}
             // src={item.thumbnail_url.replace("{width}x{height}", "300x300")}
           />
         ),
