@@ -1,7 +1,20 @@
 .sidebar {
   position: absolute;
-  height: calc(100vh - 4.8rem);
+  top: 5.4rem;
+  height: calc(100vh - 5.4rem);
   width: 4.8rem;
   background-color: #1a1a1a;
   color: #fff;
+}
+
+.sidebar:hover {
+  width: 20rem;
+}
+
+img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  border-radius: 50%;
 }

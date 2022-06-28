@@ -1,33 +1,18 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 import classes from "./SideBar.module.css";
 
 const SideBar = () => {
+  const [userFollows, setUserFollow] = useState([]);
   const parsedHash = window.location.hash
     .substring(1)
     .replace("access_token=", "")
     .split("&", [1]);
 
-  console.log(parsedHash[0]);
-
   useEffect(() => {
-    // fetchUserId();
     fetchFollowers();
   }, []);
 
-  // const fetchUserId = async () => {
-  //   const response = await fetch(`GET https://api.twitch.tv/helix/users`, {
-  //     method: "GET",
-  //     headers: {
-  //       Authorization: `Bearer ${parsedHash} `,
-  //       "Client-Id": `owb00645opxcsak6j0dwv4w5ue7pcb`,
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-  //   const responseData = await response.json();
-  //   const result = responseData.data;
-  //   console.log(result);
-  // };
   const fetchFollowers = async () => {
     const responseId = await fetch(`https://api.twitch.tv/helix/users`, {
       method: "GET",
@@ -59,15 +44,34 @@ const SideBar = () => {
       }
     );
     const responseData = await response.json();
-    const result = responseData.data;
+    const result = responseData.data.map((item) => {
+      return {
+        label: item.user_name,
+        id: item.id,
+        img: item.thumbnail_url,
+        game: item.game_name,
+        views: item.viewer_count,
+      };
+    });
     console.log(result);
+    setUserFollow(result);
   };
 
-  return <aside className={classes.sidebar}></aside>;
+  return (
+    <Fragment>
+      <aside className={classes.sidebar}>
+        {userFollows.map((label, id, img, game, views) => (
+          <ul>
+            <li id={id}>
+              <img alt={label} src={img} />
+              <span>{game}</span>
+              <span>{views}</span>
+            </li>
+          </ul>
+        ))}
+      </aside>
+    </Fragment>
+  );
 };
 
 export default SideBar;
-
-// curl -X GET 'https://api.twitch.tv/helix/streams/followed?user_id=141981764' \
-// -H 'Authorization: Bearer 2gbdx6oar67tqtcmt49t3wpcgycthx' \
-// -H 'Client-Id: wbmytr93xzw8zbg0p1izqyzzc5mbiz'
