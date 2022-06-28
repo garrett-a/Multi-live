@@ -5,6 +5,7 @@
   width: 4.8rem;
   background-color: #1a1a1a;
   color: #fff;
+  transition: all 0.3s;
 }
 
 .sidebar:hover {
