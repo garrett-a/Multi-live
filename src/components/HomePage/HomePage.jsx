@@ -8,10 +8,9 @@ const HomePage = (props) => {
 
   if (document.location.hash && document.location.hash !== "") {
     const parsedHash = window.location.hash
-      .split("#")[1]
-      .replace("access_token=", "")
-      .split("&")
-      .substring(1);
+      .split("#", "&")[1]
+      .replace("access_token=", "");
+
     console.log(parsedHash);
   }
 
