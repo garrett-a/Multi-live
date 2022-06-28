@@ -15,6 +15,7 @@ const SideBar = () => {
   }, []);
 
   const fetchFollowers = async () => {
+    // GET USER ID
     const responseId = await fetch(`https://api.twitch.tv/helix/users`, {
       method: "GET",
       headers: {
@@ -32,6 +33,7 @@ const SideBar = () => {
       };
     });
 
+    // GET USERS FOR PROFILE PIC
     const responseUsers = await fetch(
       `https://api.twitch.tv/helix/users?id=${resultId[0].id}`,
       {
@@ -49,7 +51,9 @@ const SideBar = () => {
         img: item.profile_image_url,
       };
     });
+    console.log(resultUsers.img);
 
+    // GET USER FOLLOWED STREAMS
     const response = await fetch(
       `https://api.twitch.tv/helix/streams/followed?user_id=${resultId[0].id}`,
       {
@@ -86,6 +90,7 @@ const SideBar = () => {
         title: item.title,
       };
     });
+    console.log(result.img);
     console.log(result);
     setUserFollow(result);
   };
@@ -97,6 +102,7 @@ const SideBar = () => {
           <ul>
             <li id={stream.id}>
               <span>{stream.img}</span>
+              <span>{stream.label}</span>
               <span>{stream.game}</span>
               <span>{stream.views}</span>
             </li>
