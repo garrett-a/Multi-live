@@ -42,7 +42,7 @@ const SideBar = () => {
     console.log(resultId);
 
     const response = await fetch(
-      `https://api.twitch.tv/helix/streams/followed?user_id=${resultId}`,
+      `https://api.twitch.tv/helix/streams/followed?user_id=${resultId.id}`,
       {
         method: "GET",
         headers: {
