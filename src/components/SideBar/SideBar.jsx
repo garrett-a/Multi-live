@@ -61,8 +61,7 @@ const SideBar = () => {
               borderRadius: "50%",
             }}
             alt={item.label}
-            src={item.img}
-            // src={item.thumbnail_url.replace("{width}x{height}", "300x300")}
+            src={item.thumbnail_url.replace("{width}x{height}", "300x300")}
           />
         ),
         game: item.game_name,
