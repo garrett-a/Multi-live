@@ -11,12 +11,38 @@ const SideBar = () => {
   console.log(parsedHash[0]);
 
   useEffect(() => {
+    fetchUserId();
     fetchFollowers();
   }, []);
 
+  const fetchUserId = async () => {
+    const response = await fetch(`GET https://api.twitch.tv/helix/users`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${parsedHash} `,
+        "Client-Id": `owb00645opxcsak6j0dwv4w5ue7pcb`,
+        "Content-Type": "application/json",
+      },
+    });
+    const responseData = await response.json();
+    const result = responseData.data;
+    console.log(result);
+  };
   const fetchFollowers = async () => {
+    const responseId = await fetch(`GET https://api.twitch.tv/helix/users`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${parsedHash} `,
+        "Client-Id": `owb00645opxcsak6j0dwv4w5ue7pcb`,
+        "Content-Type": "application/json",
+      },
+    });
+    const responseDataId = await responseId.json();
+    const resultId = responseDataId.data;
+    console.log(resultId);
+
     const response = await fetch(
-      `https://api.twitch.tv/helix/streams/followed`,
+      `https://api.twitch.tv/helix/streams/followed?user_id=${resultId}`,
       {
         method: "GET",
         headers: {
