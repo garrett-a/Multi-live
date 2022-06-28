@@ -29,7 +29,7 @@ const SideBar = () => {
   //   console.log(result);
   // };
   const fetchFollowers = async () => {
-    const responseId = await fetch(`GET https://api.twitch.tv/helix/users`, {
+    const responseId = await fetch(`https://api.twitch.tv/helix/users`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${parsedHash} `,
