@@ -5,6 +5,7 @@ import classes from "./SideBar.module.css";
 
 const SideBar = () => {
   const [userFollows, setUserFollow] = useState([]);
+  console.log(userFollows);
   const ctx = useContext(ThemeContext);
   const parsedHash = window.location.hash
     .substring(1)
@@ -76,6 +77,10 @@ const SideBar = () => {
     console.log(result);
   };
 
+  const addFollowedStream = (label) => {
+    ctx.addStream(label);
+  };
+
   return (
     <Fragment>
       {userFollows.length > 0 && (
@@ -83,12 +88,10 @@ const SideBar = () => {
           <ul className={classes.ul}>
             {userFollows.map((stream) => (
               <li
-                onClick={(stream) => {
-                  ctx.addStream(userFollows.label);
+                onClick={() => {
+                  addFollowedStream(stream.label);
                   console.log(stream.label);
                 }}
-                className={classes.li}
-                id={stream.id}
               >
                 <span className={classes.img}>{stream.img}</span>
                 <div>
