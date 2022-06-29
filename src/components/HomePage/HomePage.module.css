@@ -51,6 +51,11 @@
   margin-top: 4rem;
 }
 
+.homepage button:hover {
+  background-color: #7c15f2;
+  cursor: pointer;
+}
+
 .homepage button a {
   color: #fff;
   font-size: 2rem;
