@@ -1,6 +1,7 @@
 .sidebar {
   position: absolute;
   top: 5.4rem;
+  z-index: 999;
   height: calc(100vh - 5.4rem);
   width: 4.8rem;
   background-color: #1a1a1a;
@@ -19,6 +20,10 @@
 
 .li {
   display: flex;
+}
+
+.img {
+  margin-right: 1rem;
 }
 
 .label {
