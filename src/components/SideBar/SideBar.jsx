@@ -70,9 +70,7 @@ const SideBar = () => {
         title: item.title,
       };
     });
-    console.log(result.img);
-    console.log(result);
-    setUserFollow(result);
+    console.log(ctx.searchedStreams);
   };
 
   return (
@@ -82,7 +80,10 @@ const SideBar = () => {
           <ul className={classes.ul}>
             {userFollows.map((stream) => (
               <li
-                onClick={(stream) => ctx.addStream(stream.label)}
+                onClick={(stream) => {
+                  ctx.addStream(stream.label);
+                  console.log(stream.label);
+                }}
                 className={classes.li}
                 id={stream.id}
               >
