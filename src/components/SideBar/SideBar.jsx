@@ -70,6 +70,7 @@ const SideBar = () => {
         title: item.title,
       };
     });
+    setUserFollow(result);
     console.log(ctx.searchedStreams);
   };
 
