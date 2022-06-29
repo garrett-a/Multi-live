@@ -78,13 +78,16 @@ const SideBar = () => {
     <Fragment>
       {userFollows.length > 0 && (
         <aside className={classes.sidebar}>
-          <ul>
+          <ul className={classes.ul}>
             {userFollows.map((stream) => (
               <li className={classes.li} id={stream.id}>
                 <span className={classes.img}>{stream.img}</span>
-                <span className={classes.label}>{stream.label}</span>
+                <div>
+                  <span className={classes.label}>{stream.label}</span>
+                  <span className={classes.circle}></span>
+                  <span className={classes.views}>{stream.views}</span>
+                </div>
                 <span className={classes.game}>{stream.game}</span>
-                <span className={classes.views}>{stream.views}</span>
               </li>
             ))}
           </ul>
