@@ -50,14 +50,10 @@
 
 .playerOne3Streams:nth-child(2) {
   grid-area: stream2;
-
-  /* justify-self: end; */
 }
 
 .playerOne3Streams:nth-child(3) {
   grid-area: stream3;
-
-  /* justify-self: start; */
 }
 
 .player {
@@ -76,7 +72,7 @@
   right: 0rem;
   z-index: 2;
   height: 100%;
-  width: 5rem;
+  width: 9rem;
   background-color: #0087f5c6;
   border-radius: 4px;
   color: white;
