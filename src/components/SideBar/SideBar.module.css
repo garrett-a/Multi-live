@@ -28,6 +28,7 @@
   padding-bottom: 0.5rem;
   padding-right: 0.5rem;
   border-bottom: 1px #2f2f2f solid;
+  transition: all 0.3s;
 }
 
 .li:first-child {
