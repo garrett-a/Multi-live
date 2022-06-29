@@ -37,6 +37,8 @@
 
 .sidebar div {
   margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .label {
@@ -52,18 +54,19 @@
   border-radius: 50%;
   margin-left: auto;
   margin-right: 0.5rem;
+  margin-top: 1rem;
 }
 
 .views {
   font-size: 1.2rem;
-  color: #efefef;
+  color: #dfdfdf;
   margin-top: 1rem;
 }
 
 .game {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 500;
-  color: #efefef;
+  color: #dfdfdf;
   margin-top: 1rem;
   display: block;
 }
