@@ -5,7 +5,6 @@ import classes from "./SideBar.module.css";
 
 const SideBar = () => {
   const [userFollows, setUserFollow] = useState([]);
-  console.log(userFollows);
   const ctx = useContext(ThemeContext);
   const parsedHash = window.location.hash
     .substring(1)
