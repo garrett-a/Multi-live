@@ -84,10 +84,10 @@ const SideBar = () => {
                 <span className={classes.img}>{stream.img}</span>
                 <div>
                   <span className={classes.label}>{stream.label}</span>
-                  <span className={classes.circle}></span>
-                  <span className={classes.views}>{stream.views}</span>
+                  <span className={classes.game}>{stream.game}</span>
                 </div>
-                <span className={classes.game}>{stream.game}</span>
+                <span className={classes.circle}></span>
+                <span className={classes.views}>{stream.views}</span>
               </li>
             ))}
           </ul>
