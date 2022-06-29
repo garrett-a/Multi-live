@@ -11,14 +11,17 @@ const HomePage = (props) => {
   return (
     <Fragment>
       <div className={classes.homepage}>
-        <h2>Welcome to Multi-live.</h2>
-        <h3>Search a twitch stream.</h3>
-        <h3>View up to four at once.</h3>
-        <button>
-          <a onClick={console.log(document.location.hash)} href={authHref}>
-            Authorize
-          </a>
-        </button>
+        <div className={classes.card}>
+          <h2>Welcome to Multi-live.</h2>
+          <h3>Search a twitch stream.</h3>
+          <h3>View up to four at once.</h3>
+          <button>
+            <a onClick={console.log(document.location.hash)} href={authHref}>
+              Authorize
+            </a>
+          </button>
+          <span>Click to get your followed streams!</span>
+        </div>
       </div>
     </Fragment>
   );

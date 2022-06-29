@@ -17,6 +17,18 @@
   background-position: right;
 }
 
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  height: 800px;
+  width: 1200px;
+  border-radius: 16px;
+  background-color: rgba(51, 50, 50, 0.819);
+}
+
 h2 {
   font-size: 10rem;
   font-weight: 700;
@@ -30,6 +42,21 @@ h3 {
 }
 
 button {
-  width: 6rem;
-  height: 3rem;
+  width: 12rem;
+  height: 6rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #7200f5;
+  margin-bottom: 1.2rem;
+  margin-top: 4rem;
+}
+
+button a {
+  color: #fff;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+span {
+  font-size: 1.8rem;
 }

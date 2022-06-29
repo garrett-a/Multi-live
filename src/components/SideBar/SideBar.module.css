@@ -16,3 +16,7 @@
 .sidebar:hover {
   width: 25rem;
 }
+
+.ul {
+  display: flex;
+}

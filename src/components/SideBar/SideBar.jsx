@@ -77,7 +77,7 @@ const SideBar = () => {
   return (
     <Fragment>
       <aside className={classes.sidebar}>
-        <ul>
+        <ul className={classes.ul}>
           {userFollows.map((stream) => (
             <li id={stream.id}>
               <span className={classes.img}>{stream.img}</span>
