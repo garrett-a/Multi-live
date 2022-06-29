@@ -23,6 +23,8 @@
 
 .li {
   display: flex;
+  padding: 1rem;
+  border-bottom: #2e2e2e 1px solid;
 }
 
 .li:hover {
@@ -55,10 +57,13 @@
 .views {
   font-size: 1.2rem;
   color: #efefef;
+  margin-top: 1rem;
 }
 
 .game {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 500;
   color: #efefef;
+  margin-top: 1rem;
+  display: block;
 }
