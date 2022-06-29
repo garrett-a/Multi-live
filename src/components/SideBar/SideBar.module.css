@@ -17,6 +17,21 @@
   width: 25rem;
 }
 
-.ul {
+.li {
   display: flex;
+}
+
+.label {
+  font-size: 1.6rem;
+  color: #fff;
+}
+
+.game {
+  font-size: 1.4;
+  color: #efefef;
+}
+
+.views {
+  font-size: 1.2rem;
+  color: #efefef;
 }
