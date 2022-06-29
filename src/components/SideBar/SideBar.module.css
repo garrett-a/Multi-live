@@ -6,7 +6,7 @@
   width: 4.8rem;
   background-color: #1a1a1a;
   color: #fff;
-  transition: all 0.3s;
+  transition: all 0.5s;
   overflow: hidden;
   padding: 2rem 0.3rem;
 }
@@ -23,8 +23,7 @@
 
 .li {
   display: flex;
-  padding: 1rem;
-  border-bottom: #2e2e2e 1px solid;
+  padding-top: 1rem;
 }
 
 .li:hover {
