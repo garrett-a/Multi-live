@@ -87,9 +87,9 @@ const SideBar = () => {
           <ul className={classes.ul}>
             {userFollows.map((stream) => (
               <li
+                className={classes.li}
                 onClick={() => {
                   addFollowedStream(stream.label);
-                  console.log(stream.label);
                 }}
               >
                 <span className={classes.img}>{stream.img}</span>
