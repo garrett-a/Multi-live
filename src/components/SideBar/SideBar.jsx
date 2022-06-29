@@ -72,6 +72,8 @@ const SideBar = () => {
     });
     setUserFollow(result);
     console.log(ctx.searchedStreams);
+    console.log(userFollows);
+    console.log(result);
   };
 
   return (
@@ -83,7 +85,7 @@ const SideBar = () => {
               <li
                 onClick={(stream) => {
                   ctx.addStream(userFollows.label);
-                  console.log(stream);
+                  console.log(stream.label);
                 }}
                 className={classes.li}
                 id={stream.id}
