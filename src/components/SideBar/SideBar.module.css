@@ -9,6 +9,7 @@
   transition: all 0.5s;
   overflow: hidden;
   padding: 2rem 0.3rem;
+  border-radius: 8px;
 }
 
 .sidebar:hover {
@@ -23,21 +24,30 @@
 
 .li {
   display: flex;
-  padding-top: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-right: 0.5rem;
+  border-top: 1px #2f2f2f solid;
+  border-bottom: 1px #2f2f2f solid;
 }
 
 .li:hover {
   background-color: #2e2e2e;
+  cursor: pointer;
 }
 
 .img {
   margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sidebar div {
   margin: 0.5rem;
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
 }
 
 .label {
