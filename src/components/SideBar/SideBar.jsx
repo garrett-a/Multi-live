@@ -1,10 +1,11 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useContext, useEffect, useState } from "react";
+import ThemeContext from "../../store/theme-context";
 
 import classes from "./SideBar.module.css";
 
 const SideBar = () => {
   const [userFollows, setUserFollow] = useState([]);
-  console.log(userFollows);
+  const ctx = useContext(ThemeContext);
   const parsedHash = window.location.hash
     .substring(1)
     .replace("access_token=", "")
@@ -80,7 +81,11 @@ const SideBar = () => {
         <aside className={classes.sidebar}>
           <ul className={classes.ul}>
             {userFollows.map((stream) => (
-              <li className={classes.li} id={stream.id}>
+              <li
+                onClick={(stream) => ctx.addStream(stream.label)}
+                className={classes.li}
+                id={stream.id}
+              >
                 <span className={classes.img}>{stream.img}</span>
                 <div>
                   <span className={classes.label}>{stream.label}</span>
