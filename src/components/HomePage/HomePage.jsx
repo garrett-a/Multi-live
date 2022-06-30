@@ -15,11 +15,11 @@ const HomePage = () => {
 
   useEffect(() => {
     if (hashConfirm) {
-      setIsAuth(isAuth);
+      setIsAuth(true);
     }
 
     if (errorConfirm) {
-      setIsAuth(!isAuth);
+      setIsAuth(false);
     }
   }, [hashConfirm, errorConfirm, isAuth]);
 
