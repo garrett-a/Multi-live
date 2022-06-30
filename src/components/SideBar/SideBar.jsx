@@ -45,6 +45,7 @@ const SideBar = () => {
         });
 
         ctx.setUserInfo(resultId);
+        console.log(ctx.userInfo);
 
         // GET USER FOLLOWED STREAMS
         const response = await fetch(

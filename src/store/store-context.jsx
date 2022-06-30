@@ -30,6 +30,8 @@ export const StoreContextProvider = (props) => {
   const [userInfo, setUserInfo] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
+  console.log(userInfo);
+
   const streamWrapperRef = useRef(null);
 
   const addStream = (value) => {
