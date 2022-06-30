@@ -15,11 +15,11 @@ const HomePage = () => {
 
   useEffect(() => {
     if (hashConfirm) {
-      setIsAuth(true);
+      setIsAuth(isAuth);
     }
 
     if (errorConfirm) {
-      setIsAuth(false);
+      setIsAuth(!isAuth);
     }
   }, [hashConfirm, errorConfirm, isAuth]);
 
@@ -42,8 +42,8 @@ const HomePage = () => {
           {isAuth && (
             <div>
               <span>
-                Hey {ctx.userInfo[0].img} {ctx.userInfo[0].label}, happy
-                viewing!
+                Hey <img src={ctx.userInfo[0].img} alt="users logo"></img>{" "}
+                {ctx.userInfo[0].label}, happy viewing!
               </span>
             </div>
           )}
