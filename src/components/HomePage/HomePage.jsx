@@ -15,18 +15,28 @@ const HomePage = () => {
   console.log(hashConfirm);
   console.log(isAuth);
 
-  useEffect(() => {
-    const authUpdate = () => {
-      if (hashConfirm === "access_token") {
-        return setIsAuth((current) => !current);
-      }
+  // useEffect(() => {
+  //   const authUpdate = () => {
+  //     if (hashConfirm === "access_token") {
+  //       return setIsAuth((current) => !current);
+  //     }
 
-      if (hashConfirm === "error") {
-        return setIsAuth((current) => !current);
-      }
-    };
-    authUpdate();
-  }, [isAuth, hashConfirm]);
+  //     if (hashConfirm === "error") {
+  //       return setIsAuth((current) => !current);
+  //     }
+  //   };
+  //   authUpdate();
+  // }, [isAuth, hashConfirm]);
+
+  const authUpdate = () => {
+    if (hashConfirm === "access_token") {
+      return setIsAuth(isAuth);
+    }
+
+    if (hashConfirm === "error") {
+      return setIsAuth(!isAuth);
+    }
+  };
 
   return (
     <Fragment>
@@ -37,21 +47,21 @@ const HomePage = () => {
           <h3>View up to four at once.</h3>
           {!isAuth && (
             <div className={classes.auth}>
-              <button>
+              <button onClick={authUpdate}>
                 <a href={authHref}>Authorize</a>
               </button>
               <br />
               <span>Click to get your followed streams!</span>
             </div>
           )}
-          {/* {isAuth && (
+          {isAuth && (
             <div>
               <span>
                 Hey <span>{ctx.userInfo[0].img}</span>
                 {ctx.userInfo[0].label}, happy viewing!
               </span>
             </div>
-          )} */}
+          )}
         </div>
       </div>
     </Fragment>
