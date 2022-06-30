@@ -82,10 +82,10 @@ const SideBar = () => {
           };
         });
         setUserFollow(result);
-        ctx.isLoading(false);
       };
       fetchFollowers();
     }
+    ctx.isLoading(false);
   }, [ctx, parsedHash]);
 
   const addFollowedStream = (label) => {
