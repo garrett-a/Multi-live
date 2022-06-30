@@ -1,10 +1,25 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useContext } from "react";
 
 import classes from "./HomePage.module.css";
+import StoreContext from "../../store/store-context";
 
-const HomePage = (props) => {
+const HomePage = () => {
+  const [isAuth, setIsAuth] = useState(false);
+  const ctx = useContext(StoreContext);
+
   const scope = encodeURIComponent("user:read:follows user:read:email");
   const authHref = `https://id.twitch.tv/oauth2/authorize?response_type=token&client_id=owb00645opxcsak6j0dwv4w5ue7pcb&redirect_uri=https://multi-live.netlify.app/&scope=${scope}`;
+
+  const hashConfirm = window.location.hash.substring(1).split("=", [1]);
+  const errorConfirm = window.location.hash.substring(1).split("=", [1]);
+
+  if (hashConfirm) {
+    setIsAuth(true);
+  }
+
+  if (errorConfirm) {
+    setIsAuth(false);
+  }
 
   return (
     <Fragment>
@@ -13,10 +28,21 @@ const HomePage = (props) => {
           <h2>Welcome to Multi-live.</h2>
           <h3>Search a twitch stream.</h3>
           <h3>View up to four at once.</h3>
-          <button>
-            <a href={authHref}>Authorize</a>
-          </button>
-          <span>Click to get your followed streams!</span>
+          {isAuth && (
+            <div>
+              <button>
+                <a href={authHref}>Authorize</a>
+              </button>
+              <span>Click to get your followed streams!</span>
+            </div>
+          )}
+          {!isAuth && (
+            <div>
+              <span>
+                Hey {ctx.userInfo.img} {ctx.userInfo.label}, happy viewing!
+              </span>
+            </div>
+          )}
         </div>
       </div>
     </Fragment>

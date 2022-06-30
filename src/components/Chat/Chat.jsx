@@ -1,12 +1,12 @@
 import React, { Fragment, useContext } from "react";
 
 import TabBar from "./TabBar";
-import ThemeContext from "../../store/theme-context";
+import StoreContext from "../../store/store-context";
 
 import classes from "./Chat.module.css";
 
 const Chat = () => {
-  const ctx = useContext(ThemeContext);
+  const ctx = useContext(StoreContext);
   return (
     <Fragment>
       <div className={classes.chat}>

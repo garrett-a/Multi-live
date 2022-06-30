@@ -7,10 +7,10 @@ import Chat from "./components/Chat/Chat";
 import Container from "./UI/Container";
 import SideBar from "./components/SideBar/SideBar";
 import HomePage from "./components/HomePage/HomePage";
-import ThemeContext from "./store/theme-context";
+import StoreContext from "./store/store-context";
 
 function App() {
-  const ctx = useContext(ThemeContext);
+  const ctx = useContext(StoreContext);
 
   return (
     <Fragment>

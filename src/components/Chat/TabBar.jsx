@@ -4,10 +4,10 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import ThemeContext from "../../store/theme-context";
+import StoreContext from "../../store/store-context";
 
 export default function ScrollableTabsButtonForce() {
-  const ctx = useContext(ThemeContext);
+  const ctx = useContext(StoreContext);
   const [value, setValue] = useState(ctx.searchedToChat);
 
   const handleChange = (event, newValue) => {

@@ -1,12 +1,12 @@
 import React, { Fragment, useState, useContext } from "react";
 import AsyncSelect from "react-select/async";
 import makeAnimated from "react-select/animated";
-import ThemeContext from "../../store/theme-context";
+import StoreContext from "../../store/store-context";
 
 import classes from "./AsyncSearchBar.module.css";
 
 const AsyncSearchBar = () => {
-  const ctx = useContext(ThemeContext);
+  const ctx = useContext(StoreContext);
   const animatedComponents = makeAnimated();
 
   const [query, setQuery] = useState("");

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 
-const ThemeContext = React.createContext({
+const StoreContext = React.createContext({
   showStream: false,
   setShowStream: () => {},
   searchedStreams: [],
@@ -15,14 +15,19 @@ const ThemeContext = React.createContext({
   setStreamsPlaying: () => {},
   pauseAllHandler: () => {},
   streamWrapperRef: null,
+  userInfo: {},
+  setUserInfo: () => {},
 });
 
-export const ThemeContextProvider = (props) => {
+export const StoreContextProvider = (props) => {
   const [showStream, setShowStream] = useState(false);
   const [searchedStreams, setSearchedStreams] = useState([]);
   const [searchedToChat, setSearchedToChat] = useState("");
   const [streamMuted, setStreamMuted] = useState(0.5);
   const [streamsPlaying, setStreamsPlaying] = useState(true);
+  const [userInfo, setUserInfo] = useState({});
+
+  console.log(userInfo);
 
   const streamWrapperRef = useRef(null);
 
@@ -52,7 +57,7 @@ export const ThemeContextProvider = (props) => {
   };
 
   return (
-    <ThemeContext.Provider
+    <StoreContext.Provider
       value={{
         searchedStreams: searchedStreams,
         setSearchedStreams: setSearchedStreams,
@@ -68,11 +73,13 @@ export const ThemeContextProvider = (props) => {
         setStreamsPlaying: setStreamsPlaying,
         pauseAllHandler: pauseAllHandler,
         streamWrapperRef: streamWrapperRef,
+        userInfo: userInfo,
+        setUserInfo: setUserInfo,
       }}
     >
       {props.children}
-    </ThemeContext.Provider>
+    </StoreContext.Provider>
   );
 };
 
-export default ThemeContext;
+export default StoreContext;

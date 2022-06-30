@@ -2,10 +2,10 @@ import React, { Fragment, useContext, useEffect, useRef } from "react";
 
 import classes from "./SettingModal.module.css";
 import styles from "../../UI/Container.module.css";
-import ThemeContext from "../../store/theme-context";
+import StoreContext from "../../store/store-context";
 
 const SettingModal = (props) => {
-  const ctx = useContext(ThemeContext);
+  const ctx = useContext(StoreContext);
   const ref = useRef();
   const streamWrapperRef = ctx.streamWrapperRef.current;
 

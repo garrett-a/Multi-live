@@ -3,11 +3,11 @@ import AsyncSearchBar from "./AsyncSearchBar";
 
 import classes from "./Header.module.css";
 import SettingModal from "./SettingModal";
-import ThemeContext from "../../store/theme-context";
+import StoreContext from "../../store/store-context";
 
 const Header = (props) => {
   const [open, setOpen] = useState(false);
-  const ctx = useContext(ThemeContext);
+  const ctx = useContext(StoreContext);
 
   return (
     <header className={classes.header}>

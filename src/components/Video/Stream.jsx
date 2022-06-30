@@ -1,12 +1,12 @@
 import React, { Fragment, useContext } from "react";
-import ThemeContext from "../../store/theme-context";
+import StoreContext from "../../store/store-context";
 
 import ReactPlayer from "react-player";
 
 import classes from "./Stream.module.css";
 
 const Stream = () => {
-  const ctx = useContext(ThemeContext);
+  const ctx = useContext(StoreContext);
 
   const deleteStream = (url) => {
     const newStreams = ctx.searchedStreams.filter((stream) => stream !== url);

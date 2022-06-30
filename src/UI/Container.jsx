@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import ThemeContext from "../store/theme-context";
+import StoreContext from "../store/store-context";
 
 import classes from "./Container.module.css";
 
 const Container = (props) => {
-  const ctx = useContext(ThemeContext);
+  const ctx = useContext(StoreContext);
   const streamWrapperRef = ctx.streamWrapperRef;
 
   const stylesContainer = `${

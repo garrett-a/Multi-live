@@ -1,11 +1,11 @@
 import React, { Fragment, useContext, useEffect, useState } from "react";
-import ThemeContext from "../../store/theme-context";
+import StoreContext from "../../store/store-context";
 
 import classes from "./SideBar.module.css";
 
 const SideBar = () => {
   const [userFollows, setUserFollow] = useState([]);
-  const ctx = useContext(ThemeContext);
+  const ctx = useContext(StoreContext);
   const parsedHash = window.location.hash
     .substring(1)
     .replace("access_token=", "")
@@ -33,6 +33,8 @@ const SideBar = () => {
         img: item.profile_image_url,
       };
     });
+
+    ctx.setUserInfo(resultId);
 
     // GET USER FOLLOWED STREAMS
     const response = await fetch(
