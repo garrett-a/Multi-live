@@ -12,79 +12,81 @@ const SideBar = () => {
     .split("&", [1]);
 
   useEffect(() => {
-    fetchFollowers();
-  }, []);
+    if (ctx.isLoading) {
+      const fetchFollowers = async () => {
+        // GET USER ID
+        const responseId = await fetch(`https://api.twitch.tv/helix/users`, {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${parsedHash} `,
+            "Client-Id": `owb00645opxcsak6j0dwv4w5ue7pcb`,
+            "Content-Type": "application/json",
+          },
+        });
+        const responseDataId = await responseId.json();
+        const resultId = responseDataId.data.map((item) => {
+          return {
+            label: item.display_name,
+            id: item.id,
+            img: (
+              <img
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "40px",
+                  borderRadius: "50%",
+                }}
+                alt={item.label}
+                src={item.profile_image_url}
+              />
+            ),
+          };
+        });
 
-  const fetchFollowers = async () => {
-    // GET USER ID
-    const responseId = await fetch(`https://api.twitch.tv/helix/users`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${parsedHash} `,
-        "Client-Id": `owb00645opxcsak6j0dwv4w5ue7pcb`,
-        "Content-Type": "application/json",
-      },
-    });
-    const responseDataId = await responseId.json();
-    const resultId = responseDataId.data.map((item) => {
-      return {
-        label: item.display_name,
-        id: item.id,
-        img: (
-          <img
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: "40px",
-              borderRadius: "50%",
-            }}
-            alt={item.label}
-            src={item.profile_image_url}
-          />
-        ),
+        ctx.setUserInfo(resultId);
+
+        // GET USER FOLLOWED STREAMS
+        const response = await fetch(
+          `https://api.twitch.tv/helix/streams/followed?user_id=${resultId[0].id}`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${parsedHash} `,
+              "Client-Id": `owb00645opxcsak6j0dwv4w5ue7pcb`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const responseData = await response.json();
+        const result = responseData.data.map((item) => {
+          return {
+            label: item.user_name,
+            id: item.id,
+            img: (
+              <img
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "40px",
+                  borderRadius: "50%",
+                }}
+                alt={item.label}
+                src={item.thumbnail_url.replace("{width}x{height}", "300x300")}
+              />
+            ),
+            game: item.game_name,
+            views: item.viewer_count,
+            title: item.title,
+          };
+        });
+        setUserFollow(result);
       };
-    });
-
-    ctx.setUserInfo(resultId);
-
-    // GET USER FOLLOWED STREAMS
-    const response = await fetch(
-      `https://api.twitch.tv/helix/streams/followed?user_id=${resultId[0].id}`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${parsedHash} `,
-          "Client-Id": `owb00645opxcsak6j0dwv4w5ue7pcb`,
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    const responseData = await response.json();
-    const result = responseData.data.map((item) => {
-      return {
-        label: item.user_name,
-        id: item.id,
-        img: (
-          <img
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: "40px",
-              borderRadius: "50%",
-            }}
-            alt={item.label}
-            src={item.thumbnail_url.replace("{width}x{height}", "300x300")}
-          />
-        ),
-        game: item.game_name,
-        views: item.viewer_count,
-        title: item.title,
-      };
-    });
-    setUserFollow(result);
-  };
+      fetchFollowers();
+      ctx.isLoading(false);
+    }
+  }, [ctx, parsedHash]);
 
   const addFollowedStream = (label) => {
     ctx.addStream(label);

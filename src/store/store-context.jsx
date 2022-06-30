@@ -17,6 +17,8 @@ const StoreContext = React.createContext({
   streamWrapperRef: null,
   userInfo: {},
   setUserInfo: () => {},
+  isLoading: true,
+  setIsLoading: () => {},
 });
 
 export const StoreContextProvider = (props) => {
@@ -26,7 +28,7 @@ export const StoreContextProvider = (props) => {
   const [streamMuted, setStreamMuted] = useState(0.5);
   const [streamsPlaying, setStreamsPlaying] = useState(true);
   const [userInfo, setUserInfo] = useState({});
-  console.log(userInfo);
+  const [isLoading, setIsLoading] = useState(true);
 
   const streamWrapperRef = useRef(null);
 
@@ -72,6 +74,8 @@ export const StoreContextProvider = (props) => {
         streamWrapperRef: streamWrapperRef,
         userInfo: userInfo,
         setUserInfo: setUserInfo,
+        isLoading: isLoading,
+        setIsLoading: setIsLoading,
       }}
     >
       {props.children}
