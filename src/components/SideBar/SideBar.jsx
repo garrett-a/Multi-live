@@ -30,7 +30,19 @@ const SideBar = () => {
       return {
         label: item.display_name,
         id: item.id,
-        img: item.profile_image_url,
+        img: (
+          <img
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "40px",
+              borderRadius: "50%",
+            }}
+            alt={item.label}
+            src={item.profile_image_url}
+          />
+        ),
       };
     });
 

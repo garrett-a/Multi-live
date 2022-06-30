@@ -47,7 +47,7 @@ const HomePage = () => {
           {isAuth && (
             <div>
               <span>
-                Hey <img src={ctx.userInfo[0].img} alt="users logo"></img>{" "}
+                Hey <span>{ctx.userInfo[0].img}</span>
                 {ctx.userInfo[0].label}, happy viewing!
               </span>
             </div>
