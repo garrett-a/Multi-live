@@ -18,11 +18,11 @@ const HomePage = () => {
   useEffect(() => {
     const authUpdate = () => {
       if (hashConfirm === "access_token") {
-        setIsAuth(isAuth);
+        setIsAuth((current) => !current);
       }
 
       if (hashConfirm === "error") {
-        return setIsAuth(!isAuth);
+        return setIsAuth((current) => !current);
       }
     };
     authUpdate();
@@ -35,7 +35,7 @@ const HomePage = () => {
           <h2>Welcome to Multi-live.</h2>
           <h3>Search a twitch stream.</h3>
           <h3>View up to four at once.</h3>
-          {!isAuth ? (
+          {!isAuth && (
             <div className={classes.auth}>
               <button>
                 <a href={authHref}>Authorize</a>
@@ -43,21 +43,15 @@ const HomePage = () => {
               <br />
               <span>Click to get your followed streams!</span>
             </div>
-          ) : (
-            <span>
-              Hey {ctx.userInfo[0].label}
-              <img src={ctx.userInfo[0].img} alt="users logo"></img> , happy
-              viewing!
-            </span>
           )}
-          {/* {isAuth && (
+          {isAuth && (
             <div>
               <span>
                 Hey <img src={ctx.userInfo[0].img} alt="users logo"></img>{" "}
                 {ctx.userInfo[0].label}, happy viewing!
               </span>
             </div>
-          )} */}
+          )}
         </div>
       </div>
     </Fragment>
