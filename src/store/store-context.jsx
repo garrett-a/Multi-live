@@ -26,6 +26,7 @@ export const StoreContextProvider = (props) => {
   const [streamMuted, setStreamMuted] = useState(0.5);
   const [streamsPlaying, setStreamsPlaying] = useState(true);
   const [userInfo, setUserInfo] = useState({});
+  console.log(userInfo);
 
   const streamWrapperRef = useRef(null);
 
