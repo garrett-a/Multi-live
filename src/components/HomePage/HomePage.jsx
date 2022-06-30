@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useContext } from "react";
+import React, { Fragment, useState, useContext, useEffect } from "react";
 
 import classes from "./HomePage.module.css";
 import StoreContext from "../../store/store-context";
@@ -13,13 +13,15 @@ const HomePage = () => {
   const hashConfirm = window.location.hash.substring(1).split("=", [1]);
   const errorConfirm = window.location.hash.substring(1).split("=", [1]);
 
-  if (hashConfirm) {
-    setIsAuth(true);
-  }
+  useEffect(() => {
+    if (hashConfirm) {
+      setIsAuth(true);
+    }
 
-  if (errorConfirm) {
-    setIsAuth(false);
-  }
+    if (errorConfirm) {
+      setIsAuth(false);
+    }
+  }, [hashConfirm, errorConfirm, isAuth]);
 
   return (
     <Fragment>
