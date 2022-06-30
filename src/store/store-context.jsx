@@ -27,11 +27,7 @@ export const StoreContextProvider = (props) => {
   const [streamsPlaying, setStreamsPlaying] = useState(true);
   const [userInfo, setUserInfo] = useState({});
 
-  console.log(userInfo);
-
   const streamWrapperRef = useRef(null);
-
-  console.log(streamsPlaying);
 
   const addStream = (value) => {
     if (searchedStreams.length <= 3) {

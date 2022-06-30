@@ -13,16 +13,21 @@ const HomePage = () => {
   const hashConfirm = window.location.hash.substring(1).split("=", [1]).shift();
 
   console.log(hashConfirm);
+  console.log(isAuth);
 
-  useEffect(() => {
+  const authUpdate = () => {
     if (hashConfirm === "access_token") {
-      return setIsAuth(isAuth);
+      setIsAuth(isAuth);
     }
 
     if (hashConfirm === "error") {
       return setIsAuth(!isAuth);
     }
-  }, [hashConfirm, isAuth]);
+  };
+
+  useEffect(() => {
+    authUpdate();
+  }, []);
 
   return (
     <Fragment>
@@ -33,7 +38,7 @@ const HomePage = () => {
           <h3>View up to four at once.</h3>
           {!isAuth ? (
             <div className={classes.auth}>
-              <button>
+              <button onClick={authUpdate}>
                 <a href={authHref}>Authorize</a>
               </button>
               <br />
