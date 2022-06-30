@@ -51,6 +51,7 @@
 .authSpan {
   display: flex;
   align-items: center;
+  font-size: 1.8rem;
 }
 
 .homepage button {
@@ -71,9 +72,4 @@
   color: #fff;
   font-size: 2rem;
   text-decoration: none;
-}
-
-.homepage span {
-  font-size: 1.8rem;
-  display: block;
 }
