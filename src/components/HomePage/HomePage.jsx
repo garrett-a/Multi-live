@@ -16,12 +16,12 @@ const HomePage = () => {
   console.log(errorConfirm);
 
   useEffect(() => {
-    if (hashConfirm === "access_token") {
-      return setIsAuth(false);
+    if (hashConfirm === ["access_token"]) {
+      return setIsAuth(true);
     }
 
-    if (errorConfirm === "error") {
-      return setIsAuth(true);
+    if (errorConfirm === ["error"]) {
+      return setIsAuth(false);
     }
   }, [hashConfirm, errorConfirm, isAuth]);
 
