@@ -44,15 +44,14 @@ const HomePage = () => {
               <span>Click to get your followed streams!</span>
             </div>
           )}
-          {isAuth &&
-            !ctx.isLoading(
-              <div>
-                <span>
-                  Hey <span>{ctx.userInfo.img}</span>
-                  {ctx.userInfo.label}, happy viewing!
-                </span>
-              </div>
-            )}
+          {isAuth && !ctx.isLoading && (
+            <div>
+              <span>
+                Hey <span>{ctx.userInfo.img}</span>
+                {ctx.userInfo.label}, happy viewing!
+              </span>
+            </div>
+          )}
         </div>
       </div>
     </Fragment>
