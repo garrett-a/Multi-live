@@ -18,11 +18,11 @@ const HomePage = () => {
   useEffect(() => {
     const authUpdate = () => {
       if (hashConfirm === "access_token") {
-        setIsAuth((current) => !current);
+        setIsAuth(isAuth);
       }
 
       if (hashConfirm === "error") {
-        setIsAuth((current) => !current);
+        setIsAuth(!isAuth);
       }
     };
     authUpdate();
