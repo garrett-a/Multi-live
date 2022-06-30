@@ -28,6 +28,10 @@ const HomePage = () => {
     authUpdate();
   }, [isAuth, hashConfirm]);
 
+  console.log(ctx.userInfo[0].img);
+  console.log(ctx.userInfo);
+  console.log(ctx.userInfo[0]);
+
   return (
     <Fragment>
       <div className={classes.homepage}>
@@ -44,11 +48,14 @@ const HomePage = () => {
               <span>Click to get your followed streams!</span>
             </div>
           )}
-          {isAuth && (
+          {/* {isAuth && (
             <div>
-              <span>Hey {ctx.userInfo[0].label}, happy viewing!</span>
+              <span>
+                Hey <span>{ctx.userInfo[0].img}</span>
+                {ctx.userInfo[0].label}, happy viewing!
+              </span>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </Fragment>
