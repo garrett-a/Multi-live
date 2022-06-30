@@ -18,7 +18,7 @@ const HomePage = () => {
   useEffect(() => {
     const authUpdate = () => {
       if (hashConfirm === "access_token") {
-        setIsAuth((current) => !current);
+        return setIsAuth((current) => !current);
       }
 
       if (hashConfirm === "error") {
