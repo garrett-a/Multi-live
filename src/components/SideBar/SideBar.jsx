@@ -67,11 +67,9 @@ const SideBar = () => {
             img: (
               <img
                 style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
                   width: "40px",
                   borderRadius: "50%",
+                  margin: "0 .5rem",
                 }}
                 alt={item.label}
                 src={item.thumbnail_url.replace("{width}x{height}", "300x300")}

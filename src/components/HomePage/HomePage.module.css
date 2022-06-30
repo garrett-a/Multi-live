@@ -48,6 +48,11 @@
   margin-top: 4rem;
 }
 
+.authSpan {
+  display: flex;
+  align-items: center;
+}
+
 .homepage button {
   width: 12rem;
   height: 6rem;
