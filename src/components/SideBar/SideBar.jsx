@@ -49,7 +49,6 @@ const SideBar = () => {
       }
     );
     const responseData = await response.json();
-    console.log(responseData.data);
     const result = responseData.data.map((item) => {
       return {
         label: item.user_name,
@@ -73,9 +72,6 @@ const SideBar = () => {
       };
     });
     setUserFollow(result);
-    console.log(ctx.searchedStreams);
-    console.log(userFollows);
-    console.log(result);
   };
 
   const addFollowedStream = (label) => {

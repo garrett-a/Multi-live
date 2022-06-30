@@ -4,7 +4,7 @@ import classes from "./HomePage.module.css";
 import StoreContext from "../../store/store-context";
 
 const HomePage = () => {
-  const [isAuth, setIsAuth] = useState();
+  const [isAuth, setIsAuth] = useState(false);
   const ctx = useContext(StoreContext);
 
   const scope = encodeURIComponent("user:read:follows user:read:email");
