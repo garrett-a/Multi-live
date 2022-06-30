@@ -46,10 +46,7 @@ const HomePage = () => {
           )}
           {isAuth && (
             <div>
-              <span>
-                Hey <span>{ctx.userInfo[0].img}</span>
-                {ctx.userInfo[0].label}, happy viewing!
-              </span>
+              <span>Hey {ctx.userInfo[0].label}, happy viewing!</span>
             </div>
           )}
         </div>
