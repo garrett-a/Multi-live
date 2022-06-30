@@ -41,14 +41,20 @@
   line-height: 1.2;
 }
 
+.auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+}
+
 .homepage button {
   width: 12rem;
   height: 6rem;
   border: none;
   border-radius: 8px;
   background-color: #7200f5;
-  margin-bottom: 1.2rem;
-  margin-top: 4rem;
+  margin-right: 2rem;
 }
 
 .homepage button:hover {
@@ -64,4 +70,5 @@
 
 .homepage span {
   font-size: 1.8rem;
+  display: block;
 }

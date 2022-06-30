@@ -30,18 +30,20 @@ const HomePage = () => {
           <h2>Welcome to Multi-live.</h2>
           <h3>Search a twitch stream.</h3>
           <h3>View up to four at once.</h3>
-          {isAuth && (
-            <div>
+          {!isAuth && (
+            <div className={classes.auth}>
               <button>
                 <a href={authHref}>Authorize</a>
               </button>
+              <br />
               <span>Click to get your followed streams!</span>
             </div>
           )}
-          {!isAuth && (
+          {isAuth && (
             <div>
               <span>
-                Hey {ctx.userInfo.img} {ctx.userInfo.label}, happy viewing!
+                Hey {ctx.userInfo[0].img} {ctx.userInfo[0].label}, happy
+                viewing!
               </span>
             </div>
           )}
