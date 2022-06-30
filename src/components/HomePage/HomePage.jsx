@@ -41,13 +41,15 @@ const HomePage = () => {
                 <a href={authHref}>Authorize</a>
               </button>
               <br />
-              <span>Click to get your followed streams!</span>
+              <span className={classes.followedText}>
+                Click to get your followed streams!
+              </span>
             </div>
           )}
           {isAuth && !ctx.isLoading && (
             <div className={classes.auth}>
               <span className={classes.authSpan}>
-                Hey <span>{ctx.userInfo[0].img}</span>
+                Hey <span className={classes.img}>{ctx.userInfo[0].img}</span>
                 <strong>{ctx.userInfo[0].label}</strong>, happy viewing!
               </span>
             </div>

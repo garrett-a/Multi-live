@@ -54,6 +54,10 @@
   font-size: 1.8rem;
 }
 
+.img {
+  margin: 0 0.5rem;
+}
+
 .homepage button {
   width: 12rem;
   height: 6rem;
@@ -66,6 +70,10 @@
 .homepage button:hover {
   background-color: #8023eb;
   cursor: pointer;
+}
+
+.followedText {
+  font-size: 1.8rem;
 }
 
 .homepage button a {
