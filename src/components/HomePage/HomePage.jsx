@@ -17,11 +17,11 @@ const HomePage = () => {
 
   useEffect(() => {
     if (hashConfirm === ["access_token"]) {
-      return setIsAuth(true);
+      return setIsAuth(false);
     }
 
     if (errorConfirm === ["error"]) {
-      return setIsAuth(false);
+      return setIsAuth(true);
     }
   }, [hashConfirm, errorConfirm, isAuth]);
 
