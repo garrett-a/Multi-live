@@ -45,7 +45,7 @@ const HomePage = () => {
             </div>
           )}
           {isAuth && !ctx.isLoading && (
-            <div>
+            <div className={classes.auth}>
               <span>
                 Hey <span>{ctx.userInfo[0].img}</span>
                 {ctx.userInfo[0].label}, happy viewing!
