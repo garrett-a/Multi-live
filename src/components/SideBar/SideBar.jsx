@@ -87,6 +87,7 @@ const SideBar = () => {
       };
       fetchFollowers();
     }
+    console.log(ctx.isLoading);
   }, [ctx, parsedHash]);
 
   const addFollowedStream = (label) => {
