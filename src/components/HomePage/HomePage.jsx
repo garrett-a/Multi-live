@@ -44,7 +44,7 @@ const HomePage = () => {
               <span>Click to get your followed streams!</span>
             </div>
           )}
-          {/* {isAuth &&
+          {isAuth &&
             !ctx.isLoading(
               <div>
                 <span>
@@ -52,7 +52,7 @@ const HomePage = () => {
                   {ctx.userInfo[0].label}, happy viewing!
                 </span>
               </div>
-            )} */}
+            )}
         </div>
       </div>
     </Fragment>
