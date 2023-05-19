@@ -15,6 +15,19 @@ const AsyncSearchBar = () => {
     setQuery("");
   };
 
+  // const getToken = async () => {
+  //   const response = await fetch(
+  //     `https://id.twitch.tv/oauth2/token?client_id=owb00645opxcsak6j0dwv4w5ue7pcb&client_secret=${process.env.REACT_APP_TOKEN}&grant_type=client_credentials`,
+  //     {
+  //       method: "POST",
+  //     }
+  //   );
+  //   console.log(response);
+  //   const responseData = await response.json();
+  //   console.log(responseData);
+  // };
+  // getToken();
+
   const fetchStreams = async () => {
     const response = await fetch(
       `https://api.twitch.tv/helix/search/channels?query=${query}`,
@@ -27,6 +40,7 @@ const AsyncSearchBar = () => {
         },
       }
     );
+    console.log(response);
     const responseData = await response.json();
     const result = responseData.data.map((item) => {
       return {
