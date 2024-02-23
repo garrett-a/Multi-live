@@ -5,6 +5,21 @@ import StoreContext from "../../store/store-context";
 
 import classes from "./AsyncSearchBar.module.css";
 
+let accessToken = null;
+
+const getToken = async () => {
+  const response = await fetch(
+    `https://id.twitch.tv/oauth2/token?client_id=owb00645opxcsak6j0dwv4w5ue7pcb&client_secret=${process.env.REACT_APP_TOKEN}&grant_type=client_credentials`,
+    {
+      method: "POST",
+    }
+  );
+  console.log(response);
+  const responseData = await response.json();
+  console.log(responseData.access_token);
+  accessToken = responseData.access_token;
+};
+getToken();
 const AsyncSearchBar = () => {
   const ctx = useContext(StoreContext);
   const animatedComponents = makeAnimated();
@@ -15,32 +30,19 @@ const AsyncSearchBar = () => {
     setQuery("");
   };
 
-  // const getToken = async () => {
-  //   const response = await fetch(
-  //     `https://id.twitch.tv/oauth2/token?client_id=owb00645opxcsak6j0dwv4w5ue7pcb&client_secret=${process.env.REACT_APP_TOKEN}&grant_type=client_credentials`,
-  //     {
-  //       method: "POST",
-  //     }
-  //   );
-  //   console.log(response);
-  //   const responseData = await response.json();
-  //   console.log(responseData);
-  // };
-  // getToken();
-
-  const fetchStreams = async () => {
+  async function fetchStreams() {
     const response = await fetch(
       `https://api.twitch.tv/helix/search/channels?query=${query}`,
       {
         method: "GET",
         headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_TOKEN} `,
+          Authorization: `Bearer ${accessToken} `,
           "Client-Id": `owb00645opxcsak6j0dwv4w5ue7pcb`,
           "Content-Type": "application/json",
         },
       }
     );
-    console.log(response);
+
     const responseData = await response.json();
     const result = responseData.data.map((item) => {
       return {
@@ -63,9 +65,8 @@ const AsyncSearchBar = () => {
       };
     });
 
-    console.log(result);
     return result;
-  };
+  }
 
   const optionLabel = (e) => (
     <div
